@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface Product {
@@ -22,16 +23,25 @@ interface ProductCardProps {
 export const ProductCard = ({ product }: ProductCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/product/${product.id}`);
+  };
+
+  const handleColorClick = (e: React.MouseEvent, color: typeof selectedColor) => {
+    e.stopPropagation();
+    setSelectedColor(color);
+  };
 
   return (
-    <Card className="group cursor-pointer hover:shadow-lg transition-shadow duration-300">
+    <Card className="group cursor-pointer hover:shadow-lg transition-shadow duration-300" onClick={handleCardClick}>
       <CardContent className="p-0">
         {/* Image Container */}
         <div 
           className="relative overflow-hidden bg-gray-50 aspect-square rounded-t-lg"
           onMouseEnter={() => setIsFlipped(true)}
           onMouseLeave={() => setIsFlipped(false)}
-          onClick={() => setIsFlipped(!isFlipped)}
         >
           <img
             src={isFlipped ? product.frontImage : selectedColor.backImage}
@@ -55,10 +65,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             {product.colors.map((color) => (
               <button
                 key={color.name}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedColor(color);
-                }}
+                onClick={(e) => handleColorClick(e, color)}
                 className={`w-8 h-8 rounded-full border-2 transition-all duration-200 hover:scale-110 ${
                   selectedColor.name === color.name 
                     ? 'border-primary ring-2 ring-primary/20' 
