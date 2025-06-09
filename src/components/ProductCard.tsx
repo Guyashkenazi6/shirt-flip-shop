@@ -34,14 +34,20 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     setSelectedColor(color);
   };
 
+  const handleImageClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsFlipped(!isFlipped);
+  };
+
   return (
-    <Card className="group cursor-pointer hover:shadow-lg transition-shadow duration-300" onClick={handleCardClick}>
+    <Card className="group cursor-pointer hover:shadow-lg transition-shadow duration-300 bg-card border-border" onClick={handleCardClick}>
       <CardContent className="p-0">
         {/* Image Container */}
         <div 
-          className="relative overflow-hidden bg-gray-50 aspect-square rounded-t-lg"
+          className="relative overflow-hidden bg-muted aspect-square rounded-t-lg"
           onMouseEnter={() => setIsFlipped(true)}
           onMouseLeave={() => setIsFlipped(false)}
+          onClick={handleImageClick}
         >
           <img
             src={isFlipped ? product.frontImage : selectedColor.backImage}
@@ -50,15 +56,20 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           />
           
           {/* Flip Indicator */}
-          <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs">
+          <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-foreground">
             {isFlipped ? 'Front' : 'Back'}
+          </div>
+
+          {/* Mobile tap hint */}
+          <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-muted-foreground md:hidden">
+            Tap to flip
           </div>
         </div>
 
         {/* Product Info */}
         <div className="p-6">
-          <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-          <p className="text-2xl font-bold mb-4">₪{product.price}</p>
+          <h3 className="text-lg font-semibold mb-2 text-foreground">{product.name}</h3>
+          <p className="text-2xl font-bold mb-4 text-foreground">₪{product.price}</p>
 
           {/* Color Swatches */}
           <div className="flex gap-2">

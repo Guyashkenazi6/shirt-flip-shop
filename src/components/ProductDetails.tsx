@@ -27,7 +27,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
     <div className="space-y-6">
       {/* Main Image */}
       <div 
-        className="relative overflow-hidden bg-gray-50 aspect-square rounded-lg cursor-pointer"
+        className="relative overflow-hidden bg-muted aspect-square rounded-lg cursor-pointer"
         onClick={() => setIsFlipped(!isFlipped)}
       >
         <img
@@ -38,7 +38,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
         
         {/* Flip Indicator */}
         <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full">
-          <span className="text-sm font-medium">
+          <span className="text-sm font-medium text-foreground">
             {isFlipped ? 'Front View' : 'Back View'}
           </span>
         </div>
@@ -53,15 +53,15 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
 
       {/* Product Info */}
       <div className="space-y-4">
-        <h1 className="text-3xl font-bold">{product.name}</h1>
-        <p className="text-2xl font-bold">₪{product.price}</p>
+        <h1 className="text-3xl font-bold text-foreground">{product.name}</h1>
+        <p className="text-2xl font-bold text-foreground">₪{product.price}</p>
         <p className="text-muted-foreground leading-relaxed">
           {product.description}
         </p>
 
         {/* Color Selection */}
         <div className="space-y-3">
-          <h3 className="font-semibold">Color: {selectedColor.name}</h3>
+          <h3 className="font-semibold text-foreground">Color: {selectedColor.name}</h3>
           <div className="flex gap-3">
             {product.colors.map((color) => (
               <button

@@ -15,7 +15,7 @@ const ProductPage = () => {
     name: "Freedom Butterfly",
     backImage: "/lovable-uploads/a5a96b9d-9d60-4daa-989d-167dcdc6ac01.png",
     frontImage: "/lovable-uploads/a5a96b9d-9d60-4daa-989d-167dcdc6ac01.png",
-    price: 89,
+    price: 130,
     description: "A modern take on freedom and transformation. This unique design features a melting butterfly effect that represents breaking free from constraints.",
     colors: [
       { name: "Brown", value: "#8B4513", backImage: "/lovable-uploads/a5a96b9d-9d60-4daa-989d-167dcdc6ac01.png" },
@@ -25,7 +25,7 @@ const ProductPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black text-white">
       <Header />
       <main className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
