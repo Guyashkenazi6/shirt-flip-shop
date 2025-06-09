@@ -27,50 +27,56 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
     <div className="space-y-6">
       {/* Main Image */}
       <div 
-        className="relative overflow-hidden bg-muted aspect-square rounded-lg cursor-pointer"
+        className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-black aspect-square rounded-lg cursor-pointer group"
         onClick={() => setIsFlipped(!isFlipped)}
       >
         <img
           src={isFlipped ? product.frontImage : selectedColor.backImage}
           alt={`${product.name} - ${isFlipped ? 'Front' : 'Back'}`}
-          className="w-full h-full object-cover transition-transform duration-300"
+          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
         />
         
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        
         {/* Flip Indicator */}
-        <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full">
-          <span className="text-sm font-medium text-foreground">
+        <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full">
+          <span className="text-sm font-medium text-white">
             {isFlipped ? 'Front View' : 'Back View'}
           </span>
         </div>
         
         {/* Click hint */}
-        <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full">
-          <span className="text-xs text-muted-foreground">
+        <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full">
+          <span className="text-xs text-gray-300">
             Click to flip
           </span>
         </div>
       </div>
 
       {/* Product Info */}
-      <div className="space-y-4">
-        <h1 className="text-3xl font-bold text-foreground">{product.name}</h1>
-        <p className="text-2xl font-bold text-foreground">₪{product.price}</p>
-        <p className="text-muted-foreground leading-relaxed">
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-4xl font-bold text-foreground mb-2 tracking-tight">{product.name}</h1>
+          <p className="text-3xl font-bold text-foreground">₪{product.price}</p>
+        </div>
+        
+        <p className="text-muted-foreground leading-relaxed text-lg">
           {product.description}
         </p>
 
         {/* Color Selection */}
-        <div className="space-y-3">
-          <h3 className="font-semibold text-foreground">Color: {selectedColor.name}</h3>
-          <div className="flex gap-3">
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold text-foreground">Color: {selectedColor.name}</h3>
+          <div className="flex gap-4">
             {product.colors.map((color) => (
               <button
                 key={color.name}
                 onClick={() => setSelectedColor(color)}
-                className={`w-12 h-12 rounded-full border-2 transition-all duration-200 hover:scale-110 ${
+                className={`w-14 h-14 rounded-full border-2 transition-all duration-200 hover:scale-110 ${
                   selectedColor.name === color.name 
-                    ? 'border-primary ring-2 ring-primary/20' 
-                    : 'border-border'
+                    ? 'border-white ring-2 ring-white/30' 
+                    : 'border-gray-600 hover:border-gray-400'
                 }`}
                 style={{ backgroundColor: color.value }}
                 title={color.name}
@@ -80,11 +86,19 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
         </div>
 
         {/* Features */}
-        <div className="space-y-2 text-sm text-muted-foreground">
-          <p>✓ Premium cotton blend</p>
-          <p>✓ Hand-printed design</p>
-          <p>✓ Machine washable</p>
-          <p>✓ Estimated delivery: 7-10 business days</p>
+        <div className="space-y-3 text-muted-foreground">
+          <p className="flex items-center gap-2">
+            <span className="text-green-400">✓</span> Premium cotton blend
+          </p>
+          <p className="flex items-center gap-2">
+            <span className="text-green-400">✓</span> Hand-printed design
+          </p>
+          <p className="flex items-center gap-2">
+            <span className="text-green-400">✓</span> Machine washable
+          </p>
+          <p className="flex items-center gap-2">
+            <span className="text-green-400">✓</span> Estimated delivery: 7-10 business days
+          </p>
         </div>
       </div>
     </div>

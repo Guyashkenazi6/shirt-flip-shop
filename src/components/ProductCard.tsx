@@ -40,11 +40,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   return (
-    <Card className="group cursor-pointer hover:shadow-lg transition-shadow duration-300 bg-card border-border" onClick={handleCardClick}>
+    <Card className="group cursor-pointer card-hover bg-card border-border overflow-hidden" onClick={handleCardClick}>
       <CardContent className="p-0">
         {/* Image Container */}
         <div 
-          className="relative overflow-hidden bg-muted aspect-square rounded-t-lg"
+          className="relative overflow-hidden aspect-square bg-gradient-to-br from-gray-900 to-black"
           onMouseEnter={() => setIsFlipped(true)}
           onMouseLeave={() => setIsFlipped(false)}
           onClick={handleImageClick}
@@ -52,35 +52,38 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           <img
             src={isFlipped ? product.frontImage : selectedColor.backImage}
             alt={`${product.name} - ${isFlipped ? 'Front' : 'Back'}`}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
           />
           
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          
           {/* Flip Indicator */}
-          <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-foreground">
+          <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-white font-medium">
             {isFlipped ? 'Front' : 'Back'}
           </div>
 
           {/* Mobile tap hint */}
-          <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-muted-foreground md:hidden">
+          <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-gray-300 md:hidden">
             Tap to flip
           </div>
         </div>
 
         {/* Product Info */}
-        <div className="p-6">
-          <h3 className="text-lg font-semibold mb-2 text-foreground">{product.name}</h3>
+        <div className="p-6 bg-card">
+          <h3 className="text-xl font-bold mb-2 text-foreground tracking-tight">{product.name}</h3>
           <p className="text-2xl font-bold mb-4 text-foreground">₪{product.price}</p>
 
           {/* Color Swatches */}
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             {product.colors.map((color) => (
               <button
                 key={color.name}
                 onClick={(e) => handleColorClick(e, color)}
-                className={`w-8 h-8 rounded-full border-2 transition-all duration-200 hover:scale-110 ${
+                className={`w-10 h-10 rounded-full border-2 transition-all duration-200 hover:scale-110 ${
                   selectedColor.name === color.name 
-                    ? 'border-primary ring-2 ring-primary/20' 
-                    : 'border-border'
+                    ? 'border-white ring-2 ring-white/30' 
+                    : 'border-gray-600 hover:border-gray-400'
                 }`}
                 style={{ backgroundColor: color.value }}
                 title={color.name}

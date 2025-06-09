@@ -1,54 +1,41 @@
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-border bg-muted/30 mt-20">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand */}
-          <div>
+    <footer className="bg-black border-t border-white/10 mt-16">
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row items-center justify-between">
+          {/* Logo and Brand */}
+          <div className="flex items-center space-x-3 mb-4 md:mb-0">
             <img 
-              src="/lovable-uploads/33b7cff0-db56-447b-b1ba-cc7434860d47.png" 
+              src="/lovable-uploads/186d10f7-591f-42a3-b0e4-31b5a42328fa.png" 
               alt="Guy Ashkenazi Logo" 
-              className="h-8 w-auto mb-4"
+              className="h-6 w-auto"
             />
-            <p className="text-muted-foreground">
-              Premium custom t-shirt designs.<br />
-              Modern streetwear with artistic flair.
-            </p>
+            <span className="text-lg font-bold text-white tracking-tight">GUY ASHKENAZI</span>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <nav className="flex flex-col space-y-2">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                Home
-              </a>
-              <a href="#products" className="text-muted-foreground hover:text-primary transition-colors">
-                Products
-              </a>
-              <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
-                About
-              </a>
-              <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">
-                Contact
-              </a>
-            </nav>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="font-semibold mb-4">Get in Touch</h4>
-            <div className="text-muted-foreground space-y-2">
-              <p>Email: info@guyashkenazi.com</p>
-              <p>Delivery: 7-10 business days</p>
-              <p>Free shipping on orders over ₪200</p>
-            </div>
+          {/* Links */}
+          <div className="flex items-center space-x-6 mb-4 md:mb-0">
+            <a 
+              href="mailto:guy0204@gmail.com" 
+              className="text-gray-400 hover:text-white transition-colors duration-200"
+            >
+              Contact
+            </a>
+            <a 
+              href="#" 
+              className="text-gray-400 hover:text-white transition-colors duration-200"
+            >
+              Instagram
+            </a>
           </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-          <p>&copy; 2024 Guy Ashkenazi. All rights reserved.</p>
+        {/* Copyright */}
+        <div className="border-t border-white/10 mt-6 pt-6 text-center">
+          <p className="text-gray-400 text-sm">
+            © 2024 Guy Ashkenazi. All rights reserved. Premium custom t-shirts.
+          </p>
         </div>
       </div>
     </footer>

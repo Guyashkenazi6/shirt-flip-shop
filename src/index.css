@@ -1,4 +1,5 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +11,7 @@
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
 
-    --card: 0 0% 5%;
+    --card: 0 0% 3%;
     --card-foreground: 0 0% 100%;
 
     --popover: 0 0% 5%;
@@ -19,20 +20,20 @@
     --primary: 0 0% 100%;
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 0 0% 10%;
+    --secondary: 0 0% 8%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 10%;
+    --muted: 0 0% 8%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 0 0% 10%;
+    --accent: 0 0% 12%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
     --ring: 0 0% 100%;
 
     --radius: 0.5rem;
@@ -50,22 +51,22 @@
   .dark {
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
-    --card: 0 0% 5%;
+    --card: 0 0% 3%;
     --card-foreground: 0 0% 100%;
     --popover: 0 0% 5%;
     --popover-foreground: 0 0% 100%;
     --primary: 0 0% 100%;
     --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 10%;
+    --secondary: 0 0% 8%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 10%;
+    --muted: 0 0% 8%;
     --muted-foreground: 0 0% 70%;
-    --accent: 0 0% 10%;
+    --accent: 0 0% 12%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
     --ring: 0 0% 100%;
     --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 0 0% 90%;
@@ -87,9 +88,38 @@
     @apply bg-background text-foreground;
     background-color: #000000;
     color: #ffffff;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
   }
 
   html {
     background-color: #000000;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Custom animations and effects */
+@layer utilities {
+  .gradient-blur {
+    background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(255,255,255,0.1);
   }
 }
