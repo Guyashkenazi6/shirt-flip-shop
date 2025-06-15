@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,8 +31,40 @@ export const OrderForm = () => {
     notes: ""
   });
 
+  const [discountCode, setDiscountCode] = useState("");
+  const [discountAmount, setDiscountAmount] = useState(0);
+  const [appliedDiscountCode, setAppliedDiscountCode] = useState<string | null>(null);
+
   const shippingCost = 15;
-  const total = cartTotal + shippingCost;
+  const total = cartTotal + shippingCost - discountAmount;
+
+  const handleApplyDiscount = () => {
+    if (appliedDiscountCode) {
+      setDiscountCode('');
+      setDiscountAmount(0);
+      setAppliedDiscountCode(null);
+      toast({
+        title: "Discount removed",
+      });
+      return;
+    }
+
+    if (discountCode.toUpperCase() === 'GUY15') {
+      const discountValue = 15;
+      setDiscountAmount(discountValue);
+      setAppliedDiscountCode(discountCode.toUpperCase());
+      toast({
+        title: "Discount Applied",
+        description: `You saved ₪${discountValue}!`,
+      });
+    } else {
+      toast({
+        title: "Invalid Discount Code",
+        description: "The code you entered is not valid.",
+        variant: "destructive",
+      });
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -142,6 +175,23 @@ export const OrderForm = () => {
               <Textarea id="notes" value={formData.notes} onChange={handleChange} placeholder="Any special requests or notes..." rows={3} className="bg-input border-border text-foreground" />
             </div>
           </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="discountCode" className="text-foreground">Discount Code</Label>
+            <div className="flex space-x-2">
+              <Input
+                id="discountCode"
+                placeholder="Enter discount code"
+                value={discountCode}
+                onChange={(e) => setDiscountCode(e.target.value)}
+                disabled={!!appliedDiscountCode}
+                className="bg-input border-border text-foreground"
+              />
+              <Button type="button" onClick={handleApplyDiscount} variant="outline" className="shrink-0">
+                {appliedDiscountCode ? 'Remove' : 'Apply'}
+              </Button>
+            </div>
+          </div>
 
           <div className="border-t border-border pt-4 space-y-2">
             <div className="flex justify-between text-foreground">
@@ -152,6 +202,12 @@ export const OrderForm = () => {
               <span>Shipping:</span>
               <span>₪{shippingCost}</span>
             </div>
+            {discountAmount > 0 && (
+              <div className="flex justify-between text-green-500">
+                <span>Discount ({appliedDiscountCode}):</span>
+                <span>-₪{discountAmount}</span>
+              </div>
+            )}
             <div className="flex justify-between font-bold text-lg border-t border-border pt-2 text-foreground">
               <span>Total:</span>
               <span>₪{total}</span>
