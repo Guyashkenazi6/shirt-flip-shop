@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const text = '!New Arrivals Are Out';
+const text = 'New Arrivals Are Out!';
 // We repeat the text to ensure the banner is full and loops smoothly
 const items = Array(15).fill(text);
 
