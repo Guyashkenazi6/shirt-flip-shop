@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,8 +36,9 @@ export const OrderForm = () => {
   const [appliedDiscountCode, setAppliedDiscountCode] = useState<string | null>(null);
 
   const baseShippingCost = 15;
-  const shippingCost = cartCount >= 3 ? 0 : baseShippingCost;
-  const total = cartTotal + shippingCost - discountAmount;
+  const shippingCost = cartCount >= 2 ? 0 : baseShippingCost;
+  const bundleDiscount = cartCount >= 3 ? 20 : 0;
+  const total = cartTotal + shippingCost - discountAmount - bundleDiscount;
 
   const handleApplyDiscount = () => {
     if (appliedDiscountCode) {
@@ -200,19 +202,25 @@ export const OrderForm = () => {
             </div>
             <div className="flex justify-between text-foreground">
               <span>Shipping:</span>
-              {cartCount >= 3 ? (
+              {cartCount >= 2 ? (
                  <span className="text-green-400 font-semibold">FREE</span>
               ) : (
                 <span>₪{shippingCost}</span>
               )}
             </div>
-            {cartCount >= 3 && (
-               <p className="text-xs text-green-500 text-right -mt-1">Bundle offer applied</p>
+            {cartCount >= 2 && (
+               <p className="text-xs text-green-500 text-right -mt-1">Free shipping on 2+ items</p>
             )}
             {discountAmount > 0 && (
               <div className="flex justify-between text-green-500">
                 <span>Discount ({appliedDiscountCode}):</span>
                 <span>-₪{discountAmount}</span>
+              </div>
+            )}
+            {bundleDiscount > 0 && (
+              <div className="flex justify-between text-green-500">
+                <span>Bundle Offer (3+ items):</span>
+                <span>-₪{bundleDiscount}</span>
               </div>
             )}
             <div className="flex justify-between font-bold text-lg border-t border-border pt-2 text-foreground">

@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const text = 'New Arrivals Are Out!';
+const text = 'New Arrivals Are Out!  •  Free shipping on 2+ items  •  Save 20₪ on 3+ items';
 // We repeat the text to ensure the banner is full and loops smoothly
 const items = Array(15).fill(text);
 

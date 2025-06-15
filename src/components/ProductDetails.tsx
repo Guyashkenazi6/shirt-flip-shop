@@ -116,10 +116,13 @@ export const ProductDetails = ({ product, selectedColor, setSelectedColor }: Pro
         {/* Bundle Offer */}
         <div className="mt-6 bg-secondary/50 border border-border p-4 rounded-lg text-center animate-fade-in-up" style={{ animationDelay: '0.6s', opacity: 0 }}>
           <p className="font-semibold text-lg text-foreground">
-            ✨ Bundle Offer ✨
+            ✨ Bundle Offers ✨
           </p>
           <p className="text-muted-foreground mt-1">
-            Buy 3 or more shirts and get <span className="text-green-400 font-bold">FREE SHIPPING!</span>
+            Buy 2 shirts → get <span className="text-green-400 font-bold">FREE SHIPPING!</span>
+          </p>
+          <p className="text-muted-foreground mt-1">
+            Add 3 shirts → <span className="text-green-400 font-bold">save 20₪!</span>
           </p>
         </div>
       </div>
