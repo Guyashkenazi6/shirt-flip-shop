@@ -26,6 +26,7 @@ export const OrderForm = () => {
     fullName: "",
     email: "",
     address: "",
+    city: "",
     zipCode: "",
     phone: "",
     notes: ""
@@ -35,6 +36,7 @@ export const OrderForm = () => {
     fullName: "",
     email: "",
     address: "",
+    city: "",
   });
 
   const [discountCode, setDiscountCode] = useState("");
@@ -79,7 +81,7 @@ export const OrderForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (formErrors.fullName || formErrors.email || formErrors.address) {
+    if (formErrors.fullName || formErrors.email || formErrors.address || formErrors.city) {
       toast({
         title: "Invalid input",
         description: "Please make sure to use only English letters in the required fields.",
@@ -88,7 +90,7 @@ export const OrderForm = () => {
       return;
     }
     
-    if (!formData.fullName || !formData.email || !formData.address || !formData.zipCode || !formData.phone) {
+    if (!formData.fullName || !formData.email || !formData.address || !formData.city || !formData.zipCode || !formData.phone) {
       toast({
         title: "Please fill in all required fields",
         variant: "destructive"
@@ -163,7 +165,7 @@ export const OrderForm = () => {
     const { id, value } = e.target;
     setFormData(prev => ({ ...prev, [id]: value }));
 
-    if (id === 'fullName' || id === 'email' || id === 'address') {
+    if (id === 'fullName' || id === 'email' || id === 'address' || id === 'city') {
       const englishOnlyRegex = /^[A-Za-z0-9\s.,'@_+-]*$/;
       if (value && !englishOnlyRegex.test(value)) {
         setFormErrors(prev => ({...prev, [id]: "Please fill in this field using English letters only."}));
@@ -202,6 +204,12 @@ export const OrderForm = () => {
               <Label htmlFor="address" className="text-foreground">Address *</Label>
               <Input id="address" value={formData.address} onChange={handleChange} required className="bg-input border-border text-foreground" />
               {formErrors.address && <p className="text-sm text-red-500 mt-1">{formErrors.address}</p>}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="city" className="text-foreground">City *</Label>
+              <Input id="city" value={formData.city} onChange={handleChange} required className="bg-input border-border text-foreground" />
+              {formErrors.city && <p className="text-sm text-red-500 mt-1">{formErrors.city}</p>}
             </div>
 
             <div className="space-y-2">
