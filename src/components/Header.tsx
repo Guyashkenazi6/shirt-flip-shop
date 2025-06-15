@@ -6,7 +6,6 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Scroll to top when navigating
   const handleNavClick = () => {
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -17,13 +16,12 @@ export const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" onClick={handleNavClick} className="flex items-center space-x-3">
+          <Link to="/" onClick={handleNavClick} className="flex items-center">
             <img 
               src="/lovable-uploads/0fc157e6-7db0-49ee-8033-b272a9797a03.png" 
               alt="Guy Ashkenazi Logo" 
-              className="h-8 w-auto"
+              className="h-12 w-auto"
             />
-            <span className="text-xl font-bold text-white tracking-tight">GUY ASHKENAZI</span>
           </Link>
 
           {/* Desktop Navigation */}

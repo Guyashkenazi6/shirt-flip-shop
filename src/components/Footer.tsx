@@ -9,9 +9,8 @@ export const Footer = () => {
             <img 
               src="/lovable-uploads/0fc157e6-7db0-49ee-8033-b272a9797a03.png" 
               alt="Guy Ashkenazi Logo" 
-              className="h-6 w-auto"
+              className="h-8 w-auto"
             />
-            <span className="text-lg font-bold text-white tracking-tight">GUY ASHKENAZI</span>
           </div>
 
           {/* Links */}

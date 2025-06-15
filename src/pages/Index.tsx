@@ -15,12 +15,9 @@ const Index = () => {
             <img 
               src="/lovable-uploads/0fc157e6-7db0-49ee-8033-b272a9797a03.png" 
               alt="Guy Ashkenazi Logo" 
-              className="h-16 w-auto animate-float"
+              className="h-24 w-auto animate-float"
             />
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-white text-shadow">
-            GUY ASHKENAZI
-          </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Premium custom t-shirt designs. Modern streetwear with artistic flair.
           </p>
