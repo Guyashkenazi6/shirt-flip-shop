@@ -1,4 +1,6 @@
 
+import { Mail, Instagram, Phone } from "lucide-react";
+
 export const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({
@@ -28,24 +30,27 @@ export const Footer = () => {
             <a 
               href="mailto:guy0204@gmail.com" 
               className="text-gray-400 hover:text-white transition-colors duration-200"
+              aria-label="Email"
             >
-              Email
+              <Mail className="h-6 w-6" />
             </a>
             <a 
               href="https://www.instagram.com/Guy__ashkenazi" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors duration-200"
+              aria-label="Instagram"
             >
-              Instagram
+              <Instagram className="h-6 w-6" />
             </a>
             <a 
               href="https://wa.me/972546742982" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors duration-200"
+              aria-label="WhatsApp"
             >
-              WhatsApp
+              <Phone className="h-6 w-6" />
             </a>
           </div>
         </div>
