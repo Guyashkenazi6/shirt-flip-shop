@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
@@ -119,24 +118,6 @@
 
 /* Custom animations and effects */
 @layer utilities {
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
-  }
-
-  @keyframes marquee2 {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }
-  }
-
-  .animate-marquee {
-    animation: marquee 40s linear infinite;
-  }
-
-  .animate-marquee2 {
-    animation: marquee2 40s linear infinite;
-  }
-
   @keyframes float {
     0%, 100% {
       transform: translateY(0px);
