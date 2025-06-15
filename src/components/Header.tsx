@@ -18,9 +18,9 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" onClick={handleNavClick} className="flex items-center">
             <img 
-              src="/lovable-uploads/0fc157e6-7db0-49ee-8033-b272a9797a03.png" 
-              alt="Guy Ashkenazi Logo" 
-              className="h-12 w-auto"
+              src="/lovable-uploads/07d43972-fec5-42b2-97a1-a8515b577972.png" 
+              alt="AG Logo" 
+              className="h-16 w-auto"
             />
           </Link>
 

@@ -31,7 +31,7 @@ const products = [
     price: 130,
     colors: [
       { name: "Black", value: "#000000", backImage: "/lovable-uploads/9e9a6002-7050-4d7d-bcbf-4f195a3735e7.png", frontImage: "/lovable-uploads/0432decc-a957-46cb-a136-22c8b2afd64c.png" },
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/05693199-a77e-42ef-93d5-da54dd568b42.png", frontImage: "/lovable-uploads/9f7e160c-aeb7-4677-b2dc-1ce68a12aec3.png" }
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/05693199-a77e-42ef-93d5-da54dd568b42.png", frontImage: "/lovable-uploads/9ef1c9ea-dc91-4a64-9c37-09fd33efb202.png" }
     ]
   },
   {

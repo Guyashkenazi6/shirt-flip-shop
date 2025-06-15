@@ -13,9 +13,9 @@ const Index = () => {
         <div className="text-center mb-16 py-12">
           <div className="flex justify-center mb-8">
             <img 
-              src="/lovable-uploads/0fc157e6-7db0-49ee-8033-b272a9797a03.png" 
-              alt="Guy Ashkenazi Logo" 
-              className="h-24 w-auto animate-float"
+              src="/lovable-uploads/07d43972-fec5-42b2-97a1-a8515b577972.png" 
+              alt="AG Logo" 
+              className="h-32 w-auto animate-float"
             />
           </div>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
