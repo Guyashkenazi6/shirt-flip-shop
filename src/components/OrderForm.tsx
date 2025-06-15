@@ -184,13 +184,13 @@ export const OrderForm = () => {
             <div className="space-y-2">
               <Label htmlFor="fullName" className="text-foreground">Full Name *</Label>
               <Input id="fullName" value={formData.fullName} onChange={handleChange} required className="bg-input border-border text-foreground" />
-              {formErrors.fullName && <p className="text-sm text-destructive mt-1">{formErrors.fullName}</p>}
+              {formErrors.fullName && <p className="text-sm text-red-500 mt-1">{formErrors.fullName}</p>}
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="email" className="text-foreground">Email *</Label>
               <Input id="email" type="email" value={formData.email} onChange={handleChange} required className="bg-input border-border text-foreground" />
-              {formErrors.email && <p className="text-sm text-destructive mt-1">{formErrors.email}</p>}
+              {formErrors.email && <p className="text-sm text-red-500 mt-1">{formErrors.email}</p>}
             </div>
 
             <div className="space-y-2">
@@ -201,7 +201,7 @@ export const OrderForm = () => {
             <div className="space-y-2">
               <Label htmlFor="address" className="text-foreground">Address *</Label>
               <Input id="address" value={formData.address} onChange={handleChange} required className="bg-input border-border text-foreground" />
-              {formErrors.address && <p className="text-sm text-destructive mt-1">{formErrors.address}</p>}
+              {formErrors.address && <p className="text-sm text-red-500 mt-1">{formErrors.address}</p>}
             </div>
 
             <div className="space-y-2">
