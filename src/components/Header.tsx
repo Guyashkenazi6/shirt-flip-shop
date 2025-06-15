@@ -72,6 +72,15 @@ export const Header = () => {
               Products
             </a>
             <Link 
+              to="/shipping-and-returns" 
+              onClick={handleNavClick}
+              className={`text-white hover:text-gray-300 transition-colors duration-200 ${
+                location.pathname === '/shipping-and-returns' ? 'border-b border-white' : ''
+              }`}
+            >
+              Shipping & Returns
+            </Link>
+            <Link 
               to="/connect" 
               onClick={handleNavClick}
               className={`text-white hover:text-gray-300 transition-colors duration-200 ${
@@ -126,6 +135,15 @@ export const Header = () => {
               >
                 Products
               </a>
+              <Link 
+                to="/shipping-and-returns" 
+                onClick={handleNavClick}
+                className={`text-white hover:text-gray-300 transition-colors duration-200 ${
+                  location.pathname === '/shipping-and-returns' ? 'border-b border-white pb-1' : ''
+                }`}
+              >
+                Shipping & Returns
+              </Link>
               <Link 
                 to="/connect" 
                 onClick={handleNavClick}
