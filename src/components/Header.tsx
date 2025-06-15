@@ -50,8 +50,8 @@ export const Header = () => {
               Home
             </Link>
             <a 
-              href="/#products" 
-              onClick={(e) => handleAnchorClick(e, '#products')}
+              href="/#new-arrivals" 
+              onClick={(e) => handleAnchorClick(e, '#new-arrivals')}
               className="text-white hover:text-gray-300 transition-colors duration-200"
             >
               Products
@@ -105,8 +105,8 @@ export const Header = () => {
                 Home
               </Link>
               <a 
-                href="/#products"
-                onClick={(e) => handleAnchorClick(e, '#products')}
+                href="/#new-arrivals"
+                onClick={(e) => handleAnchorClick(e, '#new-arrivals')}
                 className="text-white hover:text-gray-300 transition-colors duration-200"
               >
                 Products
