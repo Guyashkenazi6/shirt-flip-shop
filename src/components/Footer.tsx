@@ -7,7 +7,7 @@ export const Footer = () => {
           {/* Logo and Brand */}
           <div className="flex items-center space-x-3 mb-4 md:mb-0">
             <img 
-              src="/lovable-uploads/07d43972-fec5-42b2-97a1-a8515b577972.png" 
+              src="/lovable-uploads/51ffcebf-97ae-462b-bac6-a667300a3e9e.png" 
               alt="AG Logo" 
               className="h-12 w-auto"
             />

@@ -18,7 +18,7 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" onClick={handleNavClick} className="flex items-center">
             <img 
-              src="/lovable-uploads/07d43972-fec5-42b2-97a1-a8515b577972.png" 
+              src="/lovable-uploads/51ffcebf-97ae-462b-bac6-a667300a3e9e.png" 
               alt="AG Logo" 
               className="h-16 w-auto"
             />
@@ -35,13 +35,12 @@ export const Header = () => {
             >
               Home
             </Link>
-            <Link 
-              to="/#products" 
-              onClick={handleNavClick}
+            <a 
+              href="/#products" 
               className="text-white hover:text-gray-300 transition-colors duration-200"
             >
               Products
-            </Link>
+            </a>
             <Link 
               to="/connect" 
               onClick={handleNavClick}
@@ -81,13 +80,13 @@ export const Header = () => {
               >
                 Home
               </Link>
-              <Link 
-                to="/#products" 
-                onClick={handleNavClick}
+              <a 
+                href="/#products"
+                onClick={handleNavClick} 
                 className="text-white hover:text-gray-300 transition-colors duration-200"
               >
                 Products
-              </Link>
+              </a>
               <Link 
                 to="/connect" 
                 onClick={handleNavClick}
