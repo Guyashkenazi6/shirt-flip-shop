@@ -7,7 +7,7 @@ export const Footer = () => {
           {/* Logo and Brand */}
           <div className="flex items-center space-x-3 mb-4 md:mb-0">
             <img 
-              src="/lovable-uploads/186d10f7-591f-42a3-b0e4-31b5a42328fa.png" 
+              src="/lovable-uploads/0fc157e6-7db0-49ee-8033-b272a9797a03.png" 
               alt="Guy Ashkenazi Logo" 
               className="h-6 w-auto"
             />
@@ -20,13 +20,23 @@ export const Footer = () => {
               href="mailto:guy0204@gmail.com" 
               className="text-gray-400 hover:text-white transition-colors duration-200"
             >
-              Contact
+              Email
             </a>
             <a 
-              href="#" 
+              href="https://www.instagram.com/Guy__ashkenazi" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors duration-200"
             >
               Instagram
+            </a>
+            <a 
+              href="https://wa.me/972546742982" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors duration-200"
+            >
+              WhatsApp
             </a>
           </div>
         </div>

@@ -6,19 +6,19 @@ import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
       <Header />
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="text-center mb-16 py-12">
           <div className="flex justify-center mb-8">
             <img 
-              src="/lovable-uploads/186d10f7-591f-42a3-b0e4-31b5a42328fa.png" 
+              src="/lovable-uploads/0fc157e6-7db0-49ee-8033-b272a9797a03.png" 
               alt="Guy Ashkenazi Logo" 
-              className="h-16 w-auto"
+              className="h-16 w-auto animate-float"
             />
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-white">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-white text-shadow">
             GUY ASHKENAZI
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -27,7 +27,7 @@ const Index = () => {
           <div className="mt-8">
             <a 
               href="#products" 
-              className="inline-block bg-white text-black px-8 py-4 text-lg font-semibold hover:bg-gray-200 transition-colors duration-300"
+              className="inline-block bg-white text-black px-8 py-4 text-lg font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               Shop Collection
             </a>

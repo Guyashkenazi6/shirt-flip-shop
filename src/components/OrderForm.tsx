@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 interface Product {
   id: number;
@@ -20,6 +21,7 @@ interface OrderFormProps {
 
 export const OrderForm = ({ product }: OrderFormProps) => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     size: "",
     quantity: 1,
@@ -50,7 +52,7 @@ Total: ₪${total}
 Customer Details:
 Name: ${formData.fullName}
 Email: ${formData.email}
-Phone: ${formData.phone || 'Not provided'}
+Phone: ${formData.phone}
 Address: ${formData.address}
 ZIP Code: ${formData.zipCode}
 
@@ -67,7 +69,7 @@ Notes: ${formData.notes || 'None'}
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.size || !formData.fullName || !formData.email || !formData.address || !formData.zipCode) {
+    if (!formData.size || !formData.fullName || !formData.email || !formData.address || !formData.zipCode || !formData.phone) {
       toast({
         title: "Please fill in all required fields",
         variant: "destructive"
@@ -75,20 +77,31 @@ Notes: ${formData.notes || 'None'}
       return;
     }
 
+    // Generate order number
+    const orderNumber = `AG${Date.now().toString().slice(-6)}`;
+
     // Send order email
     await sendOrderEmail(formData);
 
-    // Redirect to PayPal with the total amount
-    const paypalUrl = `https://www.paypal.com/paypalme/Guy0204/${total}`;
+    // Store order details for success page
+    localStorage.setItem('orderDetails', JSON.stringify({
+      orderNumber,
+      product: product.name,
+      total,
+      customerName: formData.fullName
+    }));
+
+    // Redirect to Paybox
+    const payboxUrl = `https://link.payboxapp.com/KWi44KQqaQsA28dc7`;
     
     toast({
-      title: "Redirecting to PayPal...",
+      title: "Redirecting to Paybox...",
       description: "Your order details have been sent via email."
     });
 
-    // Open PayPal in new tab
+    // Open Paybox in current tab
     setTimeout(() => {
-      window.open(paypalUrl, '_blank');
+      window.location.href = payboxUrl;
     }, 1000);
   };
 
@@ -176,13 +189,15 @@ Notes: ${formData.notes || 'None'}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="phone" className="text-foreground">Phone Number</Label>
+              <Label htmlFor="phone" className="text-foreground">Phone Number *</Label>
               <Input
                 id="phone"
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                required
                 className="bg-input border-border text-foreground"
+                placeholder="+972 XX XXX XXXX"
               />
             </div>
 
@@ -238,7 +253,7 @@ Notes: ${formData.notes || 'None'}
           </div>
 
           <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-            Proceed to PayPal Payment
+            Proceed to Paybox
           </Button>
 
           <p className="text-xs text-muted-foreground text-center">

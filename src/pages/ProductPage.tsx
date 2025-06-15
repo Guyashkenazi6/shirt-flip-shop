@@ -44,9 +44,20 @@ const ProductPage = () => {
       price: 130,
       description: "Ride the wave of style with this surf-inspired design. Combines ocean vibes with street fashion for the ultimate beach-to-city look.",
       colors: [
-        { name: "Black", value: "#000000", backImage: "/lovable-uploads/9e9a6002-7050-4d7d-bcbf-4f195a3735e7.png" },
-        { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/05693199-a77e-42ef-93d5-da54dd568b42.png" },
+        { name: "Black", value: "#000000", backImage: "/lovable-uploads/9e9a6002-7050-4d7d-bcbf-4f195a3735e7.png", frontImage: "/lovable-uploads/0432decc-a957-46cb-a136-22c8b2afd64c.png" },
+        { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/05693199-a77e-42ef-93d5-da54dd568b42.png", frontImage: "/lovable-uploads/9f7e160c-aeb7-4677-b2dc-1ce68a12aec3.png" },
         { name: "Light Gray", value: "#D3D3D3", backImage: "/lovable-uploads/c3c21cef-b683-49a7-a0c4-5597a3a13546.png" }
+      ]
+    },
+    {
+      id: 4,
+      name: "Japanese Garden",
+      backImage: "/lovable-uploads/113e808b-30d5-4552-a7b6-6404a4a0ce79.png",
+      frontImage: "/lovable-uploads/d091791b-caa6-49e7-ab65-0372b84b91d3.png",
+      price: 130,
+      description: "Embrace the zen aesthetic with this beautiful Japanese-inspired design featuring traditional elements like cherry blossoms, waves, and the rising sun.",
+      colors: [
+        { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/113e808b-30d5-4552-a7b6-6404a4a0ce79.png", frontImage: "/lovable-uploads/d091791b-caa6-49e7-ab65-0372b84b91d3.png" }
       ]
     }
   ];
@@ -54,7 +65,7 @@ const ProductPage = () => {
   const product = products.find(p => p.id === parseInt(id || "1")) || products[0];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
       <Header />
       <main className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

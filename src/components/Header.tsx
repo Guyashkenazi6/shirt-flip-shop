@@ -19,7 +19,7 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" onClick={handleNavClick} className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/186d10f7-591f-42a3-b0e4-31b5a42328fa.png" 
+              src="/lovable-uploads/0fc157e6-7db0-49ee-8033-b272a9797a03.png" 
               alt="Guy Ashkenazi Logo" 
               className="h-8 w-auto"
             />
@@ -44,12 +44,15 @@ export const Header = () => {
             >
               Products
             </Link>
-            <a 
-              href="mailto:guy0204@gmail.com" 
-              className="text-white hover:text-gray-300 transition-colors duration-200"
+            <Link 
+              to="/connect" 
+              onClick={handleNavClick}
+              className={`text-white hover:text-gray-300 transition-colors duration-200 ${
+                location.pathname === '/connect' ? 'border-b border-white' : ''
+              }`}
             >
-              Contact
-            </a>
+              Connect Us
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -87,12 +90,15 @@ export const Header = () => {
               >
                 Products
               </Link>
-              <a 
-                href="mailto:guy0204@gmail.com" 
-                className="text-white hover:text-gray-300 transition-colors duration-200"
+              <Link 
+                to="/connect" 
+                onClick={handleNavClick}
+                className={`text-white hover:text-gray-300 transition-colors duration-200 ${
+                  location.pathname === '/connect' ? 'border-b border-white pb-1' : ''
+                }`}
               >
-                Contact
-              </a>
+                Connect Us
+              </Link>
             </div>
           </nav>
         )}

@@ -13,6 +13,7 @@ interface Product {
     name: string;
     value: string;
     backImage: string;
+    frontImage?: string;
   }[];
 }
 
@@ -39,6 +40,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     setIsFlipped(!isFlipped);
   };
 
+  const getFrontImage = () => {
+    return selectedColor.frontImage || product.frontImage;
+  };
+
   return (
     <Card className="group cursor-pointer card-hover bg-card border-border overflow-hidden" onClick={handleCardClick}>
       <CardContent className="p-0">
@@ -50,8 +55,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           onClick={handleImageClick}
         >
           <img
-            src={isFlipped ? product.frontImage : selectedColor.backImage}
-            alt={`${product.name} - ${isFlipped ? 'Front' : 'Back'}`}
+            src={isFlipped ? getFrontImage() : selectedColor.backImage}
+            alt={`${product.name} -${selectedColor.name} - ${isFlipped ? 'Front' : 'Back'}`}
             className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
           />
           

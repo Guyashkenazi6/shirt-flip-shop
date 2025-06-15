@@ -34,9 +34,19 @@ const products = [
     frontImage: "/lovable-uploads/0432decc-a957-46cb-a136-22c8b2afd64c.png",
     price: 130,
     colors: [
-      { name: "Black", value: "#000000", backImage: "/lovable-uploads/9e9a6002-7050-4d7d-bcbf-4f195a3735e7.png" },
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/05693199-a77e-42ef-93d5-da54dd568b42.png" },
+      { name: "Black", value: "#000000", backImage: "/lovable-uploads/9e9a6002-7050-4d7d-bcbf-4f195a3735e7.png", frontImage: "/lovable-uploads/0432decc-a957-46cb-a136-22c8b2afd64c.png" },
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/05693199-a77e-42ef-93d5-da54dd568b42.png", frontImage: "/lovable-uploads/9f7e160c-aeb7-4677-b2dc-1ce68a12aec3.png" },
       { name: "Light Gray", value: "#D3D3D3", backImage: "/lovable-uploads/c3c21cef-b683-49a7-a0c4-5597a3a13546.png" }
+    ]
+  },
+  {
+    id: 4,
+    name: "Japanese Garden",
+    backImage: "/lovable-uploads/113e808b-30d5-4552-a7b6-6404a4a0ce79.png",
+    frontImage: "/lovable-uploads/d091791b-caa6-49e7-ab65-0372b84b91d3.png",
+    price: 130,
+    colors: [
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/113e808b-30d5-4552-a7b6-6404a4a0ce79.png", frontImage: "/lovable-uploads/d091791b-caa6-49e7-ab65-0372b84b91d3.png" }
     ]
   }
 ];
