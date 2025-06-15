@@ -18,7 +18,7 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" onClick={handleNavClick} className="flex items-center">
             <img 
-              src="/lovable-uploads/51ffcebf-97ae-462b-bac6-a667300a3e9e.png" 
+              src="/lovable-uploads/170617ca-b320-4dbb-aa17-618244208ec8.png" 
               alt="AG Logo" 
               className="h-16 w-auto"
             />

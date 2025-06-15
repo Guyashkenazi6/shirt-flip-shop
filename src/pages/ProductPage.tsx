@@ -13,35 +13,35 @@ const ProductPage = () => {
     {
       id: 1,
       name: "Freedom Butterfly",
-      backImage: "/lovable-uploads/819d9caa-451a-42a5-8c14-a6738b685bd6.png",
-      frontImage: "/lovable-uploads/9f40ebe0-86d7-4f92-ae39-a97c6a938e33.png",
+      backImage: "/lovable-uploads/a03bc66d-06cf-4aac-99ae-374b3999f3c2.png",
+      frontImage: "/lovable-uploads/888825ce-4dba-47dc-9b4e-227fe7f7362f.png",
       price: 130,
       description: "A modern take on freedom and transformation. This unique design features a melting butterfly effect that represents breaking free from constraints.",
       colors: [
-        { name: "Brown", value: "#8B4513", backImage: "/lovable-uploads/819d9caa-451a-42a5-8c14-a6738b685bd6.png", frontImage: "/lovable-uploads/9f40ebe0-86d7-4f92-ae39-a97c6a938e33.png" }
+        { name: "Brown", value: "#8B4513", backImage: "/lovable-uploads/a03bc66d-06cf-4aac-99ae-374b3999f3c2.png", frontImage: "/lovable-uploads/888825ce-4dba-47dc-9b4e-227fe7f7362f.png" }
       ]
     },
     {
       id: 2,
       name: "Ship's Wheel",
-      backImage: "/lovable-uploads/3b82d443-8129-4d94-9389-c75eb7348325.png",
-      frontImage: "/lovable-uploads/d7123e83-ba89-4a00-858f-34a975cd4bc5.png",
+      backImage: "/lovable-uploads/b8a07df5-ffab-4062-a580-b01493d6f88a.png",
+      frontImage: "/lovable-uploads/f4afd45c-0e2d-42de-a19e-42b6833b40c6.png",
       price: 130,
       description: "Navigate your style with this maritime-inspired design. The ship's wheel represents direction, control, and the journey of life.",
       colors: [
-        { name: "Gray", value: "#36454F", backImage: "/lovable-uploads/3b82d443-8129-4d94-9389-c75eb7348325.png", frontImage: "/lovable-uploads/d7123e83-ba89-4a00-858f-34a975cd4bc5.png" }
+        { name: "Gray", value: "#36454F", backImage: "/lovable-uploads/b8a07df5-ffab-4062-a580-b01493d6f88a.png", frontImage: "/lovable-uploads/f4afd45c-0e2d-42de-a19e-42b6833b40c6.png" }
       ]
     },
     {
       id: 3,
       name: "Surfboard Wave",
-      backImage: "/lovable-uploads/9e9a6002-7050-4d7d-bcbf-4f195a3735e7.png",
-      frontImage: "/lovable-uploads/0432decc-a957-46cb-a136-22c8b2afd64c.png",
+      backImage: "/lovable-uploads/8c90c667-29cc-4d73-b3bc-25bdbef1ba32.png",
+      frontImage: "/lovable-uploads/6282bab3-657d-4834-afe8-68dd48ddb118.png",
       price: 130,
       description: "Ride the wave of style with this surf-inspired design. Combines ocean vibes with street fashion for the ultimate beach-to-city look.",
       colors: [
-        { name: "Black", value: "#000000", backImage: "/lovable-uploads/9e9a6002-7050-4d7d-bcbf-4f195a3735e7.png", frontImage: "/lovable-uploads/0432decc-a957-46cb-a136-22c8b2afd64c.png" },
-        { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/05693199-a77e-42ef-93d5-da54dd568b42.png", frontImage: "/lovable-uploads/9ef1c9ea-dc91-4a64-9c37-09fd33efb202.png" }
+        { name: "Black", value: "#000000", backImage: "/lovable-uploads/8c90c667-29cc-4d73-b3bc-25bdbef1ba32.png", frontImage: "/lovable-uploads/6282bab3-657d-4834-afe8-68dd48ddb118.png" },
+        { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/c33762e0-2d7f-4347-8df8-a9bc890d7731.png", frontImage: "/lovable-uploads/eb490c53-e406-474d-929b-cbbcefb0bd72.png" }
       ]
     },
     {

@@ -12,6 +12,7 @@ interface Product {
     name: string;
     value: string;
     backImage: string;
+    frontImage?: string;
   }[];
 }
 
@@ -22,6 +23,10 @@ interface ProductDetailsProps {
 export const ProductDetails = ({ product }: ProductDetailsProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  
+  const getFrontImage = () => {
+    return selectedColor.frontImage || product.frontImage;
+  };
 
   return (
     <div className="space-y-6">
@@ -31,7 +36,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
         onClick={() => setIsFlipped(!isFlipped)}
       >
         <img
-          src={isFlipped ? product.frontImage : selectedColor.backImage}
+          src={isFlipped ? getFrontImage() : selectedColor.backImage}
           alt={`${product.name} - ${isFlipped ? 'Front' : 'Back'}`}
           className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
         />

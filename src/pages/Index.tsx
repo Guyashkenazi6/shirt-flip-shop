@@ -13,7 +13,7 @@ const Index = () => {
         <div className="text-center mb-16 py-12">
           <div className="flex justify-center mb-8">
             <img 
-              src="/lovable-uploads/51ffcebf-97ae-462b-bac6-a667300a3e9e.png" 
+              src="/lovable-uploads/170617ca-b320-4dbb-aa17-618244208ec8.png" 
               alt="AG Logo" 
               className="h-32 w-auto animate-float"
             />
