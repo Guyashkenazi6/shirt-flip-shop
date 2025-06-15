@@ -1,3 +1,4 @@
+
 export interface Color {
   name: string;
   value: string;
@@ -17,43 +18,6 @@ export interface Product {
 }
 
 export const products: Product[] = [
-  {
-    id: 9,
-    name: "Fallen Angel",
-    backImage: "/lovable-uploads/5e7d78e8-10fd-4c0e-8003-8d2be86d8ef9.png",
-    frontImage: "/lovable-uploads/92c595d4-4645-4c1d-974d-67d9b46f29a7.png",
-    price: 130,
-    description: "A poignant design blending sorrow and divinity. The single tear on the front gives way to the powerful image of a fallen angel on the back, a story of beautiful tragedy.",
-    isNewArrival: false,
-    colors: [
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/5e7d78e8-10fd-4c0e-8003-8d2be86d8ef9.png", frontImage: "/lovable-uploads/92c595d4-4645-4c1d-974d-67d9b46f29a7.png" }
-    ]
-  },
-  {
-    id: 10,
-    name: "Camera",
-    backImage: "/lovable-uploads/01f4c27e-be3f-4f5f-b8c4-fcc497953029.png",
-    frontImage: "/lovable-uploads/3a28efb3-0800-4d2d-a58c-9491a91d9278.png",
-    price: 130,
-    description: "Capture the moment. This design juxtaposes the mechanical precision of a vintage camera on the front with the natural beauty of a daisy on the back, a tribute to finding art in the everyday.",
-    isNewArrival: false,
-    colors: [
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/01f4c27e-be3f-4f5f-b8c4-fcc497953029.png", frontImage: "/lovable-uploads/3a28efb3-0800-4d2d-a58c-9491a91d9278.png" }
-    ]
-  },
-  {
-    id: 11,
-    name: "Don't Quit",
-    backImage: "/lovable-uploads/469467b8-5e16-4671-aeba-6f778d16548a.png", // white back
-    frontImage: "/lovable-uploads/ae59d19f-108c-47d4-ade5-fdf4732945d3.png", // white front
-    price: 130,
-    description: "A message of perseverance. The simple 'Don't Quit' on the front is a personal reminder, while the frayed rope on the back symbolizes holding on through tension. A powerful statement piece.",
-    isNewArrival: false,
-    colors: [
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/469467b8-5e16-4671-aeba-6f778d16548a.png", frontImage: "/lovable-uploads/ae59d19f-108c-47d4-ade5-fdf4732945d3.png" },
-      { name: "Black", value: "#000000", backImage: "/lovable-uploads/ddceb057-8333-43b7-be77-a21ef4ae0025.png", frontImage: "/lovable-uploads/60b49a59-af8c-4794-8bcc-352b1711dcac.png" }
-    ]
-  },
   {
     id: 1,
     name: "Freedom Butterfly",
@@ -157,6 +121,43 @@ export const products: Product[] = [
     colors: [
       { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/181ac141-ba2c-4416-b24f-d24e54d88206.png", frontImage: "/lovable-uploads/e3134f55-c059-467b-81b5-4fe36d6b3121.png" },
       { name: "Black", value: "#000000", backImage: "/lovable-uploads/12a3539a-2465-45a8-91f8-622a452d807a.png", frontImage: "/lovable-uploads/58830503-4389-45d8-ac00-6e96d0639c00.png" }
+    ]
+  },
+  {
+    id: 11,
+    name: "Don't Quit",
+    backImage: "/lovable-uploads/469467b8-5e16-4671-aeba-6f778d16548a.png", // white back
+    frontImage: "/lovable-uploads/ae59d19f-108c-47d4-ade5-fdf4732945d3.png", // white front
+    price: 130,
+    description: "A message of perseverance. The simple 'Don't Quit' on the front is a personal reminder, while the frayed rope on the back symbolizes holding on through tension. A powerful statement piece.",
+    isNewArrival: false,
+    colors: [
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/469467b8-5e16-4671-aeba-6f778d16548a.png", frontImage: "/lovable-uploads/ae59d19f-108c-47d4-ade5-fdf4732945d3.png" },
+      { name: "Black", value: "#000000", backImage: "/lovable-uploads/ddceb057-8333-43b7-be77-a21ef4ae0025.png", frontImage: "/lovable-uploads/60b49a59-af8c-4794-8bcc-352b1711dcac.png" }
+    ]
+  },
+  {
+    id: 10,
+    name: "Camera",
+    backImage: "/lovable-uploads/01f4c27e-be3f-4f5f-b8c4-fcc497953029.png",
+    frontImage: "/lovable-uploads/3a28efb3-0800-4d2d-a58c-9491a91d9278.png",
+    price: 130,
+    description: "Capture the moment. This design juxtaposes the mechanical precision of a vintage camera on the front with the natural beauty of a daisy on the back, a tribute to finding art in the everyday.",
+    isNewArrival: false,
+    colors: [
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/01f4c27e-be3f-4f5f-b8c4-fcc497953029.png", frontImage: "/lovable-uploads/3a28efb3-0800-4d2d-a58c-9491a91d9278.png" }
+    ]
+  },
+  {
+    id: 9,
+    name: "Fallen Angel",
+    backImage: "/lovable-uploads/5e7d78e8-10fd-4c0e-8003-8d2be86d8ef9.png",
+    frontImage: "/lovable-uploads/92c595d4-4645-4c1d-974d-67d9b46f29a7.png",
+    price: 130,
+    description: "A poignant design blending sorrow and divinity. The single tear on the front gives way to the powerful image of a fallen angel on the back, a story of beautiful tragedy.",
+    isNewArrival: false,
+    colors: [
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/5e7d78e8-10fd-4c0e-8003-8d2be86d8ef9.png", frontImage: "/lovable-uploads/92c595d4-4645-4c1d-974d-67d9b46f29a7.png" }
     ]
   }
 ];
