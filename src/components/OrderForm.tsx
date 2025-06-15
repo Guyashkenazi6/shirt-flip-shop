@@ -37,6 +37,8 @@ export const OrderForm = () => {
     email: "",
     address: "",
     city: "",
+    phone: "",
+    zipCode: "",
   });
 
   const [discountCode, setDiscountCode] = useState("");
@@ -81,10 +83,10 @@ export const OrderForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (formErrors.fullName || formErrors.email || formErrors.address || formErrors.city) {
+    if (formErrors.fullName || formErrors.email || formErrors.address || formErrors.city || formErrors.phone || formErrors.zipCode) {
       toast({
         title: "Invalid input",
-        description: "Please make sure to use only English letters in the required fields.",
+        description: "Please make sure to fill all fields correctly.",
         variant: "destructive",
       });
       return;
@@ -173,6 +175,24 @@ export const OrderForm = () => {
         setFormErrors(prev => ({...prev, [id]: ""}));
       }
     }
+
+    if (id === 'phone') {
+      const phoneRegex = /^[0-9+\s-()]*$/;
+      if (value && !phoneRegex.test(value)) {
+        setFormErrors(prev => ({...prev, phone: "Please enter a valid phone number."}));
+      } else {
+        setFormErrors(prev => ({...prev, phone: ""}));
+      }
+    }
+
+    if (id === 'zipCode') {
+      const zipCodeRegex = /^[0-9]*$/;
+      if (value && !zipCodeRegex.test(value)) {
+        setFormErrors(prev => ({...prev, zipCode: "ZIP code must contain only numbers."}));
+      } else {
+        setFormErrors(prev => ({...prev, zipCode: ""}));
+      }
+    }
   };
 
   return (
@@ -198,6 +218,7 @@ export const OrderForm = () => {
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-foreground">Phone Number *</Label>
               <Input id="phone" type="tel" value={formData.phone} onChange={handleChange} required className="bg-input border-border text-foreground" placeholder="+972 XX XXX XXXX" />
+              {formErrors.phone && <p className="text-sm text-red-500 mt-1">{formErrors.phone}</p>}
             </div>
 
             <div className="space-y-2">
@@ -215,6 +236,7 @@ export const OrderForm = () => {
             <div className="space-y-2">
               <Label htmlFor="zipCode" className="text-foreground">ZIP Code *</Label>
               <Input id="zipCode" value={formData.zipCode} onChange={handleChange} required className="bg-input border-border text-foreground" />
+              {formErrors.zipCode && <p className="text-sm text-red-500 mt-1">{formErrors.zipCode}</p>}
             </div>
 
             <div className="space-y-2">
