@@ -7,7 +7,7 @@ const items = Array(15).fill(text);
 
 export const MarqueeBanner = () => {
   const content = items.map((item, index) => (
-    <span key={index} className="mx-4 text-sm font-semibold uppercase tracking-wider">{item}</span>
+    <span key={index} className="mx-12 text-sm font-semibold uppercase tracking-wider">{item}</span>
   ));
 
   return (
