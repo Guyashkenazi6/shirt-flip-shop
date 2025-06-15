@@ -31,6 +31,12 @@ export const OrderForm = () => {
     notes: ""
   });
 
+  const [formErrors, setFormErrors] = useState({
+    fullName: "",
+    email: "",
+    address: "",
+  });
+
   const [discountCode, setDiscountCode] = useState("");
   const [discountAmount, setDiscountAmount] = useState(0);
   const [appliedDiscountCode, setAppliedDiscountCode] = useState<string | null>(null);
@@ -72,6 +78,15 @@ export const OrderForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (formErrors.fullName || formErrors.email || formErrors.address) {
+      toast({
+        title: "Invalid input",
+        description: "Please make sure to use only English letters in the required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
     
     if (!formData.fullName || !formData.email || !formData.address || !formData.zipCode || !formData.phone) {
       toast({
@@ -147,6 +162,15 @@ export const OrderForm = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     setFormData(prev => ({ ...prev, [id]: value }));
+
+    if (id === 'fullName' || id === 'email' || id === 'address') {
+      const englishOnlyRegex = /^[A-Za-z0-9\s.,'@_+-]*$/;
+      if (value && !englishOnlyRegex.test(value)) {
+        setFormErrors(prev => ({...prev, [id]: "Please fill in this field using English letters only."}));
+      } else {
+        setFormErrors(prev => ({...prev, [id]: ""}));
+      }
+    }
   };
 
   return (
@@ -160,11 +184,13 @@ export const OrderForm = () => {
             <div className="space-y-2">
               <Label htmlFor="fullName" className="text-foreground">Full Name *</Label>
               <Input id="fullName" value={formData.fullName} onChange={handleChange} required className="bg-input border-border text-foreground" />
+              {formErrors.fullName && <p className="text-sm text-destructive mt-1">{formErrors.fullName}</p>}
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="email" className="text-foreground">Email *</Label>
               <Input id="email" type="email" value={formData.email} onChange={handleChange} required className="bg-input border-border text-foreground" />
+              {formErrors.email && <p className="text-sm text-destructive mt-1">{formErrors.email}</p>}
             </div>
 
             <div className="space-y-2">
@@ -175,6 +201,7 @@ export const OrderForm = () => {
             <div className="space-y-2">
               <Label htmlFor="address" className="text-foreground">Address *</Label>
               <Input id="address" value={formData.address} onChange={handleChange} required className="bg-input border-border text-foreground" />
+              {formErrors.address && <p className="text-sm text-destructive mt-1">{formErrors.address}</p>}
             </div>
 
             <div className="space-y-2">
