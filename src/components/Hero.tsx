@@ -23,7 +23,7 @@ export const Hero = () => {
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <div className="rounded-lg overflow-hidden shadow-2xl shadow-white/5">
               <img 
-                src="/lovable-uploads/4ef3a371-e710-4ce6-9e54-3c0bda258034.png"
+                src="/lovable-uploads/86882564-4ed8-43dd-8298-21b83d16c06e.png"
                 alt="Model wearing AG t-shirt"
                 className="w-full h-full object-cover"
               />
