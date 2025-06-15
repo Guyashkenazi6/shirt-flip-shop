@@ -8,10 +8,10 @@ export const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in-up">
             <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight tracking-tighter">
-              Crafted for Comfort. <br /> Designed for Style.
+              Created with purpose. <br /> Inspired by what I truly want to wear.
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-md">
-              Discover premium essentials that are built to last. Our commitment is to quality, comfort, and timeless design.
+              Discover premium pieces born from passion — crafted for those who understand their style. Designed to last, with a commitment to quality, comfort, and timeless elegance.
             </p>
             <a 
               href="#new-arrivals" 
