@@ -44,7 +44,8 @@ export const products: Product[] = [
     isNewArrival: true,
     colors: [
       { name: "Black", value: "#000000", backImage: "/lovable-uploads/4515f781-3555-4ebe-a20c-5fe958435795.png", frontImage: "/lovable-uploads/b3411e5a-7d22-4136-9747-b0aa71456b05.png" },
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/cf6d47a1-a778-443e-9789-b659044821df.png", frontImage: "/lovable-uploads/2745deb3-8280-4eb6-8fea-a40045924e69.png" }
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/cf6d47a1-a778-443e-9789-b659044821df.png", frontImage: "/lovable-uploads/2745deb3-8280-4eb6-8fea-a40045924e69.png" },
+      { name: "Navy", value: "#202A44", backImage: "/lovable-uploads/2e90c5f3-e0c5-46f0-8938-cb9b9d04a976.png", frontImage: "/lovable-uploads/d72f57db-f1a9-4d6a-afbd-fb8cd246d268.png" }
     ]
   },
   {
@@ -59,7 +60,8 @@ export const products: Product[] = [
     colors: [
       { name: "Gray", value: "#36454F", backImage: "/lovable-uploads/56feff94-d854-4d45-be88-35ed05e8d43f.png", frontImage: "/lovable-uploads/93d0690c-a3f2-462b-9f64-ba225911670d.png" },
       { name: "Black", value: "#000000", backImage: "/lovable-uploads/1b9c853b-a443-40b7-8b9e-32561ea37756.png", frontImage: "/lovable-uploads/7a4fede2-2083-495d-a59d-104a67214fd1.png" },
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/4d173eb9-b02c-4242-93dd-4b39558ef278.png", frontImage: "/lovable-uploads/6a44930d-d79f-4e7e-9421-75148bae1bb8.png" }
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/4d173eb9-b02c-4242-93dd-4b39558ef278.png", frontImage: "/lovable-uploads/6a44930d-d79f-4e7e-9421-75148bae1bb8.png" },
+      { name: "Navy", value: "#202A44", backImage: "/lovable-uploads/0b98dda1-3281-4d0a-b1f7-9ce5bfdb4092.png", frontImage: "/lovable-uploads/2b2455b6-5b84-4d5e-9669-4bb40e01e883.png" }
     ]
   },
   {
@@ -74,7 +76,8 @@ export const products: Product[] = [
     colors: [
       { name: "Brown", value: "#8B4513", backImage: "/lovable-uploads/c63e0397-5b6a-4adf-b9ea-57aa2cad8269.png", frontImage: "/lovable-uploads/8dff6775-bbba-48e8-bdde-204a74d2d906.png" },
       { name: "Black", value: "#000000", backImage: "/lovable-uploads/936f6dee-3bfd-4544-bd50-19dfa0876025.png", frontImage: "/lovable-uploads/a96d6f4d-84ba-4237-aa44-fed5403705e4.png" },
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/58b885b1-c476-46a6-a044-d892b4d81da7.png", frontImage: "/lovable-uploads/844f04d9-42ad-4212-8242-c1870dc149fb.png" }
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/58b885b1-c476-46a6-a044-d892b4d81da7.png", frontImage: "/lovable-uploads/844f04d9-42ad-4212-8242-c1870dc149fb.png" },
+      { name: "Navy", value: "#202A44", backImage: "/lovable-uploads/bffc6065-9d9b-4338-8ab7-572891514eee.png", frontImage: "/lovable-uploads/84c24e42-24fa-420e-9d74-b7dba87a3209.png" }
     ]
   },
   {
