@@ -23,28 +23,71 @@ serve(async (req) => {
       </tr>
     `).join('');
 
-    let discountsHtml = '';
-    const allDiscounts = [];
-    if (discounts?.summerSale > 0) {
-      allDiscounts.push(`<tr><td>Summer Sale:</td><td style="text-align: right; color: #22c55e;">-₪${discounts.summerSale.toFixed(2)}</td></tr>`);
-    }
-    if (discounts?.bundleOffer > 0) {
-      allDiscounts.push(`<tr><td>Bundle Offer (3+ items):</td><td style="text-align: right; color: #22c55e;">-₪${discounts.bundleOffer.toFixed(2)}</td></tr>`);
-    }
-    if (discounts?.coupon?.amount > 0) {
-      allDiscounts.push(`<tr><td>Coupon (${discounts.coupon.code}):</td><td style="text-align: right; color: #22c55e;">-₪${discounts.coupon.amount.toFixed(2)}</td></tr>`);
+    const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    const summaryRows = [];
+
+    // Subtotal
+    summaryRows.push(`
+      <tr>
+        <td style="padding: 5px 0;">Subtotal:</td>
+        <td style="text-align: right; padding: 5px 0;">₪${subtotal.toFixed(2)}</td>
+      </tr>
+    `);
+
+    // Shipping
+    if (shippingCost === 0 && itemCount >= 2) {
+      summaryRows.push(`
+        <tr>
+          <td style="padding: 5px 0;">Shipping:</td>
+          <td style="text-align: right; padding: 5px 0; color: #22c55e; font-weight: bold;">FREE</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: right; font-size: 12px; color: #6b7280; padding-bottom: 5px; line-height: 1;">Free shipping on 2+ items</td>
+        </tr>
+      `);
+    } else {
+      summaryRows.push(`
+        <tr>
+          <td style="padding: 5px 0;">Shipping:</td>
+          <td style="text-align: right; padding: 5px 0;">₪${shippingCost.toFixed(2)}</td>
+        </tr>
+      `);
     }
 
-    if (allDiscounts.length > 0) {
-      discountsHtml = `
-        <h3 style="color: #444; margin-top: 20px; border-bottom: 2px solid #eee; padding-bottom: 5px;">Discounts Applied</h3>
-        <table style="width: 100%; margin-top: 10px;">
-          <tbody>
-            ${allDiscounts.join('')}
-          </tbody>
-        </table>
-      `;
+    // Discounts
+    if (discounts?.coupon?.amount > 0) {
+      summaryRows.push(`
+        <tr>
+          <td style="padding: 5px 0; color: #22c55e;">Discount (${discounts.coupon.code}):</td>
+          <td style="text-align: right; padding: 5px 0; color: #22c55e;">-₪${discounts.coupon.amount.toFixed(2)}</td>
+        </tr>
+      `);
     }
+    if (discounts?.bundleOffer > 0) {
+      summaryRows.push(`
+        <tr>
+          <td style="padding: 5px 0; color: #22c55e;">Bundle Offer (3+ items):</td>
+          <td style="text-align: right; padding: 5px 0; color: #22c55e;">-₪${discounts.bundleOffer.toFixed(2)}</td>
+        </tr>
+      `);
+    }
+
+    // Total
+    summaryRows.push(`
+      <tr style="border-top: 1px solid #ddd; font-weight: bold;">
+        <td style="padding: 10px 0 0 0;">Total:</td>
+        <td style="text-align: right; padding: 10px 0 0 0;">₪${total.toFixed(2)}</td>
+      </tr>
+    `);
+
+    const summaryHtml = `
+      <h3 style="color: #444; margin-top: 20px; border-bottom: 2px solid #eee; padding-bottom: 5px;">Order Summary</h3>
+      <table style="width: 100%; margin-top: 10px;">
+        <tbody>
+          ${summaryRows.join('')}
+        </tbody>
+      </table>
+    `;
 
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -66,14 +109,7 @@ serve(async (req) => {
           </tbody>
         </table>
 
-        ${discountsHtml}
-
-        <h3 style="color: #444; margin-top: 20px;">Order Summary</h3>
-        <table style="width: 100%; margin-top: 10px;">
-          <tr><td>Subtotal:</td><td style="text-align: right;">₪${subtotal.toFixed(2)}</td></tr>
-          <tr><td>Shipping:</td><td style="text-align: right;">₪${shippingCost.toFixed(2)}</td></tr>
-          <tr><td style="font-weight: bold;">Total:</td><td style="text-align: right; font-weight: bold;">₪${total.toFixed(2)}</td></tr>
-        </table>
+        ${summaryHtml}
         
         <h2 style="color: #444; border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 30px;">Customer Information</h2>
         <p><strong>Name:</strong> ${orderData.fullName}</p>
