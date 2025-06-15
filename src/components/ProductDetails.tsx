@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 interface Product {
@@ -16,13 +15,21 @@ interface Product {
   }[];
 }
 
-interface ProductDetailsProps {
-  product: Product;
+interface Color {
+  name: string;
+  value: string;
+  backImage: string;
+  frontImage?: string;
 }
 
-export const ProductDetails = ({ product }: ProductDetailsProps) => {
+interface ProductDetailsProps {
+  product: Product;
+  selectedColor: Color;
+  setSelectedColor: (color: Color) => void;
+}
+
+export const ProductDetails = ({ product, selectedColor, setSelectedColor }: ProductDetailsProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   
   const getFrontImage = () => {
     return selectedColor.frontImage || product.frontImage;

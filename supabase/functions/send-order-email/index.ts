@@ -1,68 +1,97 @@
 
-import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
-
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+import { serve } from "https://deno.land/std@0.190.0/http/server.ts"
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const handler = async (req: Request): Promise<Response> => {
+serve(async (req) => {
   if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
+    return new Response("ok", { headers: corsHeaders });
   }
 
   try {
-    const { orderData, product, subtotal, shippingCost, total } = await req.json();
+    const { orderData, cartItems, subtotal, shippingCost, total } = await req.json();
 
-    const emailBody = `
-      <h1>New Order from Guy Ashkenazi T-Shirts</h1>
-      <p><strong>Product:</strong> ${product.name}</p>
-      <p><strong>Size:</strong> ${orderData.size}</p>
-      <p><strong>Quantity:</strong> ${orderData.quantity}</p>
-      <hr>
-      <p><strong>Subtotal:</strong> ₪${subtotal}</p>
-      <p><strong>Shipping:</strong> ₪${shippingCost}</p>
-      <p><strong>Total:</strong> ₪${total}</p>
-      <hr>
-      <h2>Customer Details:</h2>
-      <p><strong>Name:</strong> ${orderData.fullName}</p>
-      <p><strong>Email:</strong> ${orderData.email}</p>
-      <p><strong>Phone:</strong> ${orderData.phone}</p>
-      <p><strong>Address:</strong> ${orderData.address}</p>
-      <p><strong>ZIP Code:</strong> ${orderData.zipCode}</p>
-      <p><strong>Notes:</strong> ${orderData.notes || 'None'}</p>
+    const itemsHtml = cartItems.map(item => `
+      <tr>
+        <td style="padding: 10px; border-bottom: 1px solid #ddd;">${item.name} (${item.size}, ${item.color})</td>
+        <td style="padding: 10px; border-bottom: 1px solid #ddd; text-align: center;">${item.quantity}</td>
+        <td style="padding: 10px; border-bottom: 1px solid #ddd; text-align: right;">₪${item.price.toFixed(2)}</td>
+        <td style="padding: 10px; border-bottom: 1px solid #ddd; text-align: right;">₪${(item.price * item.quantity).toFixed(2)}</td>
+      </tr>
+    `).join('');
+
+    const emailHtml = `
+      <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+        <h1 style="color: #333;">New Order Received!</h1>
+        <p>You've received a new order from <strong>${orderData.fullName}</strong>.</p>
+        
+        <h2 style="color: #444; border-bottom: 2px solid #eee; padding-bottom: 5px;">Order Details</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th style="padding: 10px; border-bottom: 2px solid #333; text-align: left;">Product</th>
+              <th style="padding: 10px; border-bottom: 2px solid #333; text-align: center;">Quantity</th>
+              <th style="padding: 10px; border-bottom: 2px solid #333; text-align: right;">Price</th>
+              <th style="padding: 10px; border-bottom: 2px solid #333; text-align: right;">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${itemsHtml}
+          </tbody>
+        </table>
+
+        <h3 style="color: #444;">Order Summary</h3>
+        <table style="width: 100%; margin-top: 20px;">
+          <tr><td>Subtotal:</td><td style="text-align: right;">₪${subtotal.toFixed(2)}</td></tr>
+          <tr><td>Shipping:</td><td style="text-align: right;">₪${shippingCost.toFixed(2)}</td></tr>
+          <tr><td style="font-weight: bold;">Total:</td><td style="text-align: right; font-weight: bold;">₪${total.toFixed(2)}</td></tr>
+        </table>
+        
+        <h2 style="color: #444; border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 30px;">Customer Information</h2>
+        <p><strong>Name:</strong> ${orderData.fullName}</p>
+        <p><strong>Email:</strong> ${orderData.email}</p>
+        <p><strong>Phone:</strong> ${orderData.phone}</p>
+        <p><strong>Address:</strong> ${orderData.address}, ${orderData.zipCode}</p>
+        <p><strong>Notes:</strong> ${orderData.notes || 'N/A'}</p>
+      </div>
     `;
 
-    const emailResponse = await resend.emails.send({
-      from: "Guy Ashkenazi Store <onboarding@resend.dev>",
-      to: ["guy0204@gmail.com"],
-      subject: `New T-Shirt Order - ${product.name}`,
-      html: emailBody,
-    });
-
-    console.log("Email sent successfully:", emailResponse);
-
-    return new Response(JSON.stringify({ success: true, data: emailResponse }), {
-      status: 200,
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        ...corsHeaders,
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${resendApiKey}`,
       },
+      body: JSON.stringify({
+        from: 'onboarding@resend.dev',
+        to: 'guy0204@gmail.com',
+        subject: `New Order from ${orderData.fullName}`,
+        html: emailHtml,
+      }),
     });
-  } catch (error: any) {
-    console.error("Error in send-order-email function:", error);
-    return new Response(
-      JSON.stringify({ error: error.message }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
-    );
-  }
-};
 
-serve(handler);
+    if (!res.ok) {
+      const errorBody = await res.text();
+      console.error("Resend API error:", errorBody);
+      throw new Error(`Failed to send email: ${res.statusText}`);
+    }
+
+    const data = await res.json();
+
+    return new Response(JSON.stringify(data), {
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+      status: 200,
+    });
+
+  } catch (err) {
+    return new Response(String(err?.message ?? err), {
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+      status: 500,
+    });
+  }
+})

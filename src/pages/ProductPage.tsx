@@ -1,10 +1,9 @@
-
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProductDetails } from "@/components/ProductDetails";
-import { OrderForm } from "@/components/OrderForm";
+import { AddToCartForm } from "@/components/AddToCartForm";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -58,14 +57,15 @@ const ProductPage = () => {
   ];
 
   const product = products.find(p => p.id === parseInt(id || "1")) || products[0];
+  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
       <Header />
       <main className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <ProductDetails product={product} />
-          <OrderForm product={product} />
+          <ProductDetails product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} />
+          <AddToCartForm product={product} selectedColor={selectedColor} />
         </div>
       </main>
       <Footer />
