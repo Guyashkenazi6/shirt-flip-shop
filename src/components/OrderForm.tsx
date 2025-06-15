@@ -15,6 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export const OrderForm = () => {
   const { toast } = useToast();
@@ -33,6 +34,7 @@ export const OrderForm = () => {
   const [discountCode, setDiscountCode] = useState("");
   const [discountAmount, setDiscountAmount] = useState(0);
   const [appliedDiscountCode, setAppliedDiscountCode] = useState<string | null>(null);
+  const [instructionsRead, setInstructionsRead] = useState(false);
 
   const summerSaleDiscount = cartCount * 20;
   const baseShippingCost = 15;
@@ -237,9 +239,9 @@ export const OrderForm = () => {
             </div>
           </div>
 
-          <Dialog>
+          <Dialog onOpenChange={(open) => open && setInstructionsRead(true)}>
             <DialogTrigger asChild>
-              <Button variant="outline" className="w-full">
+              <Button variant="outline" className="w-full" type="button">
                 How to pay
               </Button>
             </DialogTrigger>
@@ -258,7 +260,21 @@ export const OrderForm = () => {
             </DialogContent>
           </Dialog>
 
-          <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+          <div className="flex items-center space-x-2">
+            <Checkbox
+              id="instructionsRead"
+              checked={instructionsRead}
+              onCheckedChange={(checked) => setInstructionsRead(checked === true)}
+            />
+            <label
+              htmlFor="instructionsRead"
+              className="text-sm text-muted-foreground"
+            >
+              I have read the payment instructions (How to Pay)
+            </label>
+          </div>
+
+          <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90" disabled={!instructionsRead}>
             Proceed to Paybox
           </Button>
 
