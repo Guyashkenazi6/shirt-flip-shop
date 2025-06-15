@@ -1,11 +1,21 @@
 
 export const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <footer className="bg-black border-t border-white/10 mt-16">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between">
           {/* Logo and Brand */}
-          <div className="flex items-center space-x-3 mb-4 md:mb-0">
+          <div
+            className="flex items-center space-x-3 mb-4 md:mb-0 cursor-pointer"
+            onClick={scrollToTop}
+          >
             <img 
               src="/lovable-uploads/f621a571-f1d0-485b-a45c-1f762898efee.png" 
               alt="AG Logo" 
