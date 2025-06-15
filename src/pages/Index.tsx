@@ -4,6 +4,7 @@ import { ProductGrid } from "@/components/ProductGrid";
 import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
 import { products } from "@/data/products";
+import { MarqueeBanner } from "@/components/MarqueeBanner";
 
 const Index = () => {
   const newArrivals = products.filter(p => p.isNewArrival);
@@ -11,6 +12,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <MarqueeBanner />
       <Header />
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
