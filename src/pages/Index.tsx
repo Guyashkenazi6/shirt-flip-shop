@@ -27,7 +27,7 @@ const Index = () => {
           </h1>
           <div className="mt-10">
             <a 
-              href="#products" 
+              href="#new-arrivals" 
               className="inline-block bg-white text-black px-8 py-4 text-lg font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 rounded-sm"
             >
               Shop Collection
@@ -35,7 +35,7 @@ const Index = () => {
           </div>
         </div>
         
-        <ProductGrid title="New Arrivals" products={newArrivals} />
+        <ProductGrid title="New Arrivals" products={newArrivals} id="new-arrivals" />
         <ProductGrid title="Our Collection" products={otherProducts} id="products" />
         <Testimonials />
       </main>

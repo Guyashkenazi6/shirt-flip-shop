@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { ProductDetails } from "@/components/ProductDetails";
 import { AddToCartForm } from "@/components/AddToCartForm";
 import { products, Color } from "@/data/products";
+import { SizeRecommender } from "@/components/SizeRecommender";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -19,7 +20,10 @@ const ProductPage = () => {
       <main className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <ProductDetails product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} />
-          <AddToCartForm product={product} selectedColor={selectedColor} />
+          <div>
+            <AddToCartForm product={product} selectedColor={selectedColor} />
+            <SizeRecommender />
+          </div>
         </div>
       </main>
       <Footer />
