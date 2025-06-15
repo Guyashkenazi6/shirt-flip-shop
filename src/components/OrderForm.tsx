@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,6 +8,13 @@ import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useCart } from "@/hooks/useCart";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export const OrderForm = () => {
   const { toast } = useToast();
@@ -151,6 +157,27 @@ export const OrderForm = () => {
               <span>₪{total}</span>
             </div>
           </div>
+
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="w-full">
+                How to pay
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="bg-card border-border text-foreground">
+              <DialogHeader>
+                <DialogTitle>Payment Instructions</DialogTitle>
+              </DialogHeader>
+              <div className="py-4 space-y-4">
+                <p className="text-muted-foreground">
+                  After you proceed to PayBox, please transfer the exact payment amount shown at checkout to my PayBox account.
+                </p>
+                <p className="text-muted-foreground">
+                  Once I receive your payment, I will send you a confirmation message that your order has been successfully placed and is on its way.
+                </p>
+              </div>
+            </DialogContent>
+          </Dialog>
 
           <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
             Proceed to Paybox
