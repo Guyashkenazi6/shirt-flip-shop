@@ -1,3 +1,4 @@
+
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts"
 
 const corsHeaders = {
@@ -63,7 +64,9 @@ serve(async (req) => {
         <p style="margin: 0;"><strong style="display: inline-block; width: 90px; color: #555;">Name:</strong> ${orderData.fullName}</p>
         <p style="margin: 0;"><strong style="display: inline-block; width: 90px; color: #555;">Email:</strong> ${orderData.email}</p>
         <p style="margin: 0;"><strong style="display: inline-block; width: 90px; color: #555;">Phone:</strong> ${orderData.phone}</p>
-        <p style="margin: 0;"><strong style="display: inline-block; width: 90px; color: #555;">Address:</strong> ${orderData.address}, ${orderData.zipCode}</p>
+        <p style="margin: 0;"><strong style="display: inline-block; width: 90px; color: #555;">Address:</strong> ${orderData.address}</p>
+        <p style="margin: 0;"><strong style="display: inline-block; width: 90px; color: #555;">City:</strong> ${orderData.city}</p>
+        <p style="margin: 0;"><strong style="display: inline-block; width: 90px; color: #555;">ZIP Code:</strong> ${orderData.zipCode}</p>
         <p style="margin: 0;"><strong style="display: inline-block; width: 90px; color: #555;">Notes:</strong> ${orderData.notes || 'N/A'}</p>
       </div>
     `;
