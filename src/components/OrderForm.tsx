@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,7 +19,7 @@ import {
 export const OrderForm = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
-  const { cartItems, cartTotal, clearCart } = useCart();
+  const { cartItems, cartTotal, clearCart, cartCount } = useCart();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -35,7 +34,8 @@ export const OrderForm = () => {
   const [discountAmount, setDiscountAmount] = useState(0);
   const [appliedDiscountCode, setAppliedDiscountCode] = useState<string | null>(null);
 
-  const shippingCost = 15;
+  const baseShippingCost = 15;
+  const shippingCost = cartCount >= 3 ? 0 : baseShippingCost;
   const total = cartTotal + shippingCost - discountAmount;
 
   const handleApplyDiscount = () => {
@@ -200,8 +200,15 @@ export const OrderForm = () => {
             </div>
             <div className="flex justify-between text-foreground">
               <span>Shipping:</span>
-              <span>₪{shippingCost}</span>
+              {cartCount >= 3 ? (
+                 <span className="text-green-400 font-semibold">FREE</span>
+              ) : (
+                <span>₪{shippingCost}</span>
+              )}
             </div>
+            {cartCount >= 3 && (
+               <p className="text-xs text-green-500 text-right -mt-1">Bundle offer applied</p>
+            )}
             {discountAmount > 0 && (
               <div className="flex justify-between text-green-500">
                 <span>Discount ({appliedDiscountCode}):</span>
