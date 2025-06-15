@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
 
 interface Product {
   id: number;
@@ -6,6 +7,7 @@ interface Product {
   backImage: string;
   frontImage: string;
   price: number;
+  originalPrice?: number;
   description: string;
   colors: {
     name: string;
@@ -70,7 +72,17 @@ export const ProductDetails = ({ product, selectedColor, setSelectedColor }: Pro
       <div className="space-y-6">
         <div>
           <h1 className="text-4xl font-bold text-foreground mb-2 tracking-tight">{product.name}</h1>
-          <p className="text-3xl font-bold text-foreground">₪{product.price}</p>
+          <div className="flex items-baseline gap-3">
+            <p className="text-4xl font-bold text-foreground">₪{product.price}</p>
+            {product.originalPrice && (
+              <p className="text-2xl text-muted-foreground line-through">₪{product.originalPrice}</p>
+            )}
+            {product.originalPrice && (
+              <Badge variant="destructive" className="text-base">
+                {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
+              </Badge>
+            )}
+          </div>
         </div>
         
         <p className="text-muted-foreground leading-relaxed text-lg">

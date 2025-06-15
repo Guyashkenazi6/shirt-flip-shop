@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Header } from "@/components/Header";
@@ -7,6 +6,7 @@ import { ProductDetails } from "@/components/ProductDetails";
 import { AddToCartForm } from "@/components/AddToCartForm";
 import { products, Color } from "@/data/products";
 import { SizeRecommender } from "@/components/SizeRecommender";
+import { SaleBanner } from "@/components/SaleBanner";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -16,6 +16,7 @@ const ProductPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
+      <SaleBanner />
       <Header />
       <main className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

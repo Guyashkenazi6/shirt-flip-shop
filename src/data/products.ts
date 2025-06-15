@@ -12,6 +12,7 @@ export interface Product {
   backImage: string;
   frontImage: string;
   price: number;
+  originalPrice?: number;
   description: string;
   isNewArrival: boolean;
   colors: Color[];
@@ -24,6 +25,7 @@ export const products: Product[] = [
     backImage: "/lovable-uploads/348f8da6-e309-47c6-ac4e-36befb85bf97.png",
     frontImage: "/lovable-uploads/cc74473a-f8f8-4881-b452-c29c5acb7168.png",
     price: 130,
+    originalPrice: 150,
     description: "A divine design that blends classical art with a modern streetwear aesthetic.",
     isNewArrival: true,
     colors: [
@@ -37,6 +39,7 @@ export const products: Product[] = [
     backImage: "/lovable-uploads/4515f781-3555-4ebe-a20c-5fe958435795.png",
     frontImage: "/lovable-uploads/b3411e5a-7d22-4136-9747-b0aa71456b05.png",
     price: 130,
+    originalPrice: 150,
     description: "Ride the wave of style with this surf-inspired design. Combines ocean vibes with street fashion for the ultimate beach-to-city look.",
     isNewArrival: true,
     colors: [
@@ -50,6 +53,7 @@ export const products: Product[] = [
     backImage: "/lovable-uploads/56feff94-d854-4d45-be88-35ed05e8d43f.png",
     frontImage: "/lovable-uploads/93d0690c-a3f2-462b-9f64-ba225911670d.png",
     price: 130,
+    originalPrice: 150,
     description: "Navigate your style with this maritime-inspired design. The ship's wheel represents direction, control, and the journey of life.",
     isNewArrival: true,
     colors: [
@@ -64,6 +68,7 @@ export const products: Product[] = [
     backImage: "/lovable-uploads/c63e0397-5b6a-4adf-b9ea-57aa2cad8269.png",
     frontImage: "/lovable-uploads/8dff6775-bbba-48e8-bdde-204a74d2d906.png",
     price: 130,
+    originalPrice: 150,
     description: "A modern take on freedom and transformation. This unique design features a melting butterfly effect that represents breaking free from constraints.",
     isNewArrival: true,
     colors: [
@@ -78,6 +83,7 @@ export const products: Product[] = [
     backImage: "/lovable-uploads/da91ca1d-7dc8-4a89-ae34-2c25a9e53690.png",
     frontImage: "/lovable-uploads/b3581bfe-548a-41ec-be48-9f91f3850ab7.png",
     price: 130,
+    originalPrice: 150,
     description: "Embrace the zen aesthetic with this beautiful Japanese-inspired design featuring traditional elements like cherry blossoms, waves, and the rising sun.",
     isNewArrival: false,
     colors: [
@@ -90,6 +96,7 @@ export const products: Product[] = [
     backImage: "/lovable-uploads/64044b0d-18dc-4134-9496-ff062b973700.png",
     frontImage: "/lovable-uploads/3bba62a4-3261-4d29-ac83-de610bd569e9.png",
     price: 130,
+    originalPrice: 150,
     description: "A powerful message paired with iconic imagery. This design serves as a reminder to keep your inner passion alive.",
     isNewArrival: false,
     colors: [
@@ -103,6 +110,7 @@ export const products: Product[] = [
     backImage: "/lovable-uploads/64bc7694-8dc1-4b4e-8be9-301454d29859.png",
     frontImage: "/lovable-uploads/aa562d8a-6b86-4aa4-ac04-5377a0163c42.png",
     price: 130,
+    originalPrice: 150,
     description: "A strategic design that speaks to vision and ambition. The pawn sees a king in the mirror, representing the potential within.",
     isNewArrival: false,
     colors: [
@@ -116,6 +124,7 @@ export const products: Product[] = [
     backImage: "/lovable-uploads/181ac141-ba2c-4416-b24f-d24e54d88206.png",
     frontImage: "/lovable-uploads/e3134f55-c059-467b-81b5-4fe36d6b3121.png",
     price: 130,
+    originalPrice: 150,
     description: "The state of balancing your mind, body, and spirit, where priorities align with your true self, leading to inner peace, clarity, and fulfillment.",
     isNewArrival: false,
     colors: [
@@ -129,6 +138,7 @@ export const products: Product[] = [
     backImage: "/lovable-uploads/469467b8-5e16-4671-aeba-6f778d16548a.png", // white back
     frontImage: "/lovable-uploads/ae59d19f-108c-47d4-ade5-fdf4732945d3.png", // white front
     price: 130,
+    originalPrice: 150,
     description: "A message of perseverance. The simple 'Don't Quit' on the front is a personal reminder, while the frayed rope on the back symbolizes holding on through tension. A powerful statement piece.",
     isNewArrival: false,
     colors: [
@@ -142,6 +152,7 @@ export const products: Product[] = [
     backImage: "/lovable-uploads/01f4c27e-be3f-4f5f-b8c4-fcc497953029.png",
     frontImage: "/lovable-uploads/3a28efb3-0800-4d2d-a58c-9491a91d9278.png",
     price: 130,
+    originalPrice: 150,
     description: "Capture the moment. This design juxtaposes the mechanical precision of a vintage camera on the front with the natural beauty of a daisy on the back, a tribute to finding art in the everyday.",
     isNewArrival: false,
     colors: [
@@ -154,6 +165,7 @@ export const products: Product[] = [
     backImage: "/lovable-uploads/5e7d78e8-10fd-4c0e-8003-8d2be86d8ef9.png",
     frontImage: "/lovable-uploads/92c595d4-4645-4c1d-974d-67d9b46f29a7.png",
     price: 130,
+    originalPrice: 150,
     description: "A poignant design blending sorrow and divinity. The single tear on the front gives way to the powerful image of a fallen angel on the back, a story of beautiful tragedy.",
     isNewArrival: false,
     colors: [

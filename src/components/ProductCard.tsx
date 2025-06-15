@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 interface Product {
   id: number;
@@ -9,6 +9,7 @@ interface Product {
   backImage: string;
   frontImage: string;
   price: number;
+  originalPrice?: number;
   colors: {
     name: string;
     value: string;
@@ -59,6 +60,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             alt={`${product.name} -${selectedColor.name} - ${isFlipped ? 'Front' : 'Back'}`}
             className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
           />
+
+          {product.originalPrice && (
+            <Badge variant="destructive" className="absolute top-4 left-4 z-10">
+                {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
+            </Badge>
+          )}
           
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -77,7 +84,13 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         {/* Product Info */}
         <div className="p-6 bg-card">
           <h3 className="text-xl font-bold mb-2 text-foreground tracking-tight">{product.name}</h3>
-          <p className="text-2xl font-bold mb-4 text-foreground">₪{product.price}</p>
+          
+          <div className="flex items-center gap-2 mb-4">
+            <p className="text-2xl font-bold text-foreground">₪{product.price}</p>
+            {product.originalPrice && (
+                <p className="text-lg text-muted-foreground line-through">₪{product.originalPrice}</p>
+            )}
+          </div>
 
           {/* Color Swatches */}
           <div className="flex gap-3">
