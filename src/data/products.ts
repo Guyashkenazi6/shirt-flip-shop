@@ -24,7 +24,7 @@ export const products: Product[] = [
     frontImage: "/lovable-uploads/92c595d4-4645-4c1d-974d-67d9b46f29a7.png",
     price: 130,
     description: "A poignant design blending sorrow and divinity. The single tear on the front gives way to the powerful image of a fallen angel on the back, a story of beautiful tragedy.",
-    isNewArrival: true,
+    isNewArrival: false,
     colors: [
       { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/5e7d78e8-10fd-4c0e-8003-8d2be86d8ef9.png", frontImage: "/lovable-uploads/92c595d4-4645-4c1d-974d-67d9b46f29a7.png" }
     ]
@@ -36,7 +36,7 @@ export const products: Product[] = [
     frontImage: "/lovable-uploads/3a28efb3-0800-4d2d-a58c-9491a91d9278.png",
     price: 130,
     description: "Capture the moment. This design juxtaposes the mechanical precision of a vintage camera on the front with the natural beauty of a daisy on the back, a tribute to finding art in the everyday.",
-    isNewArrival: true,
+    isNewArrival: false,
     colors: [
       { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/01f4c27e-be3f-4f5f-b8c4-fcc497953029.png", frontImage: "/lovable-uploads/3a28efb3-0800-4d2d-a58c-9491a91d9278.png" }
     ]
@@ -48,7 +48,7 @@ export const products: Product[] = [
     frontImage: "/lovable-uploads/ae59d19f-108c-47d4-ade5-fdf4732945d3.png", // white front
     price: 130,
     description: "A message of perseverance. The simple 'Don't Quit' on the front is a personal reminder, while the frayed rope on the back symbolizes holding on through tension. A powerful statement piece.",
-    isNewArrival: true,
+    isNewArrival: false,
     colors: [
       { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/469467b8-5e16-4671-aeba-6f778d16548a.png", frontImage: "/lovable-uploads/ae59d19f-108c-47d4-ade5-fdf4732945d3.png" },
       { name: "Black", value: "#000000", backImage: "/lovable-uploads/ddceb057-8333-43b7-be77-a21ef4ae0025.png", frontImage: "/lovable-uploads/60b49a59-af8c-4794-8bcc-352b1711dcac.png" }
