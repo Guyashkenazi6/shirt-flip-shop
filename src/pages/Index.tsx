@@ -17,7 +17,7 @@ const Index = () => {
         <div className="text-center min-h-[80vh] flex flex-col justify-center items-center animate-fade-in-up">
           <div className="mb-8">
             <img 
-              src="/lovable-uploads/170617ca-b320-4dbb-aa17-618244208ec8.png" 
+              src="/lovable-uploads/7e350fb6-daf2-4a3e-bd4a-47fca6cb2b9e.png" 
               alt="AG Logo" 
               className="h-32 w-auto"
             />
