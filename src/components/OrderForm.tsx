@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -58,7 +57,7 @@ export const OrderForm = () => {
       setAppliedDiscountCode(discountCode.toUpperCase());
       toast({
         title: "Discount Applied",
-        description: `You saved ₪${discountValue}!`,
+        description: `You saved ${discountValue}₪!`,
       });
     } else {
       toast({
@@ -207,14 +206,14 @@ export const OrderForm = () => {
           <div className="border-t border-border pt-4 space-y-2">
             <div className="flex justify-between text-foreground">
               <span>Subtotal:</span>
-              <span>₪{cartTotal}</span>
+              <span>{cartTotal}₪</span>
             </div>
             <div className="flex justify-between text-foreground">
               <span>Shipping:</span>
               {cartCount >= 2 ? (
                  <span className="text-green-400 font-semibold">FREE</span>
               ) : (
-                <span>₪{shippingCost}</span>
+                <span>{shippingCost}₪</span>
               )}
             </div>
             {cartCount >= 2 && (
@@ -223,18 +222,18 @@ export const OrderForm = () => {
             {discountAmount > 0 && (
               <div className="flex justify-between text-green-500">
                 <span>Discount ({appliedDiscountCode}):</span>
-                <span>-₪{discountAmount}</span>
+                <span>-{discountAmount}₪</span>
               </div>
             )}
             {bundleDiscount > 0 && (
               <div className="flex justify-between text-green-500">
                 <span>Bundle Offer (3+ items):</span>
-                <span>-₪{bundleDiscount}</span>
+                <span>-{bundleDiscount}₪</span>
               </div>
             )}
             <div className="flex justify-between font-bold text-lg border-t border-border pt-2 text-foreground">
               <span>Total:</span>
-              <span>₪{total}</span>
+              <span>{total}₪</span>
             </div>
           </div>
 

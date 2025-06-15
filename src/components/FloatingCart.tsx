@@ -55,7 +55,7 @@ export function FloatingCart() {
                     <div className="flex-grow">
                       <h4 className="font-semibold">{item.name}</h4>
                       <p className="text-sm text-muted-foreground">{item.color.name}, Size: {item.size}</p>
-                      <p className="text-lg font-bold">₪{item.price}</p>
+                      <p className="text-lg font-bold">{item.price}₪</p>
                     </div>
                     <div className="flex items-center gap-2">
                        <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateItemQuantity(item.id, item.quantity - 1)}><Minus className="h-4 w-4" /></Button>
@@ -74,7 +74,7 @@ export function FloatingCart() {
             <DrawerFooter className="border-t border-border mt-4">
               <div className="flex justify-between text-xl font-bold mb-4">
                 <span>Total:</span>
-                <span>₪{cartTotal}</span>
+                <span>{cartTotal}₪</span>
               </div>
               <Button onClick={handleCheckout} size="lg" className="w-full">Proceed to Checkout</Button>
             </DrawerFooter>

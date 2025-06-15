@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
@@ -87,9 +86,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           <h3 className="text-xl font-bold mb-2 text-foreground tracking-tight">{product.name}</h3>
           
           <div className="flex items-center gap-2 mb-4">
-            <p className="text-2xl font-bold text-foreground">₪{product.price}</p>
+            <p className="text-2xl font-bold text-foreground">{product.price}₪</p>
             {product.originalPrice && (
-                <p className="text-lg text-muted-foreground line-through">₪{product.originalPrice}</p>
+                <p className="text-lg text-muted-foreground line-through">{product.originalPrice}₪</p>
             )}
           </div>
 

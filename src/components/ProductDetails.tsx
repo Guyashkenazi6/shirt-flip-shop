@@ -73,9 +73,9 @@ export const ProductDetails = ({ product, selectedColor, setSelectedColor }: Pro
         <div>
           <h1 className="text-4xl font-bold text-foreground mb-2 tracking-tight">{product.name}</h1>
           <div className="flex items-baseline gap-3">
-            <p className="text-4xl font-bold text-foreground">₪{product.price}</p>
+            <p className="text-4xl font-bold text-foreground">{product.price}₪</p>
             {product.originalPrice && (
-              <p className="text-2xl text-muted-foreground line-through">₪{product.originalPrice}</p>
+              <p className="text-2xl text-muted-foreground line-through">{product.originalPrice}₪</p>
             )}
             {product.originalPrice && (
               <Badge variant="destructive" className="text-base rounded-md">
