@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 
 interface Product {
   id: number;
@@ -38,34 +38,6 @@ export const OrderForm = ({ product }: OrderFormProps) => {
   const subtotal = product.price * formData.quantity;
   const total = subtotal + shippingCost;
 
-  const sendOrderEmail = async (orderData: any) => {
-    const emailBody = `
-New Order from Guy Ashkenazi T-Shirts:
-
-Product: ${product.name}
-Size: ${formData.size}
-Quantity: ${formData.quantity}
-Subtotal: ₪${subtotal}
-Shipping: ₪${shippingCost}
-Total: ₪${total}
-
-Customer Details:
-Name: ${formData.fullName}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Address: ${formData.address}
-ZIP Code: ${formData.zipCode}
-
-Notes: ${formData.notes || 'None'}
-    `;
-
-    // Create mailto link
-    const mailtoLink = `mailto:guy0204@gmail.com?subject=New T-Shirt Order - ${product.name}&body=${encodeURIComponent(emailBody)}`;
-    
-    // Open default email client
-    window.location.href = mailtoLink;
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -77,32 +49,49 @@ Notes: ${formData.notes || 'None'}
       return;
     }
 
-    // Generate order number
-    const orderNumber = `AG${Date.now().toString().slice(-6)}`;
+    try {
+      const { error } = await supabase.functions.invoke('send-order-email', {
+        body: { 
+          orderData: formData,
+          product,
+          subtotal,
+          shippingCost,
+          total
+        },
+      });
 
-    // Send order email
-    await sendOrderEmail(formData);
+      if (error) {
+        throw error;
+      }
+      
+      const orderNumber = `AG${Date.now().toString().slice(-6)}`;
 
-    // Store order details for success page
-    localStorage.setItem('orderDetails', JSON.stringify({
-      orderNumber,
-      product: product.name,
-      total,
-      customerName: formData.fullName
-    }));
+      localStorage.setItem('orderDetails', JSON.stringify({
+        orderNumber,
+        product: product.name,
+        total,
+        customerName: formData.fullName
+      }));
 
-    // Redirect to Paybox
-    const payboxUrl = `https://link.payboxapp.com/KWi44KQqaQsA28dc7`;
-    
-    toast({
-      title: "Redirecting to Paybox...",
-      description: "Your order details have been sent via email."
-    });
+      const payboxUrl = `https://link.payboxapp.com/KWi44KQqaQsA28dc7`;
+      
+      toast({
+        title: "Redirecting to Paybox...",
+        description: "Your order details have been submitted."
+      });
 
-    // Open Paybox in current tab
-    setTimeout(() => {
-      window.location.href = payboxUrl;
-    }, 1000);
+      setTimeout(() => {
+        window.location.href = payboxUrl;
+      }, 1000);
+
+    } catch (error) {
+      console.error("Failed to send order email:", error);
+      toast({
+        title: "Order submission failed",
+        description: "There was an error submitting your order. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   const updateQuantity = (change: number) => {
