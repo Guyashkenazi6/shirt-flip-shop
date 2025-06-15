@@ -12,7 +12,7 @@ serve(async (req) => {
   }
 
   try {
-    const { orderData, cartItems, subtotal, shippingCost, total } = await req.json();
+    const { orderData, cartItems, subtotal, shippingCost, total, discounts } = await req.json();
 
     const itemsHtml = cartItems.map(item => `
       <tr>
@@ -22,6 +22,29 @@ serve(async (req) => {
         <td style="padding: 10px; border-bottom: 1px solid #ddd; text-align: right;">₪${(item.price * item.quantity).toFixed(2)}</td>
       </tr>
     `).join('');
+
+    let discountsHtml = '';
+    const allDiscounts = [];
+    if (discounts?.summerSale > 0) {
+      allDiscounts.push(`<tr><td>Summer Sale:</td><td style="text-align: right; color: #22c55e;">-₪${discounts.summerSale.toFixed(2)}</td></tr>`);
+    }
+    if (discounts?.bundleOffer > 0) {
+      allDiscounts.push(`<tr><td>Bundle Offer (3+ items):</td><td style="text-align: right; color: #22c55e;">-₪${discounts.bundleOffer.toFixed(2)}</td></tr>`);
+    }
+    if (discounts?.coupon?.amount > 0) {
+      allDiscounts.push(`<tr><td>Coupon (${discounts.coupon.code}):</td><td style="text-align: right; color: #22c55e;">-₪${discounts.coupon.amount.toFixed(2)}</td></tr>`);
+    }
+
+    if (allDiscounts.length > 0) {
+      discountsHtml = `
+        <h3 style="color: #444; margin-top: 20px; border-bottom: 2px solid #eee; padding-bottom: 5px;">Discounts Applied</h3>
+        <table style="width: 100%; margin-top: 10px;">
+          <tbody>
+            ${allDiscounts.join('')}
+          </tbody>
+        </table>
+      `;
+    }
 
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -43,8 +66,10 @@ serve(async (req) => {
           </tbody>
         </table>
 
-        <h3 style="color: #444;">Order Summary</h3>
-        <table style="width: 100%; margin-top: 20px;">
+        ${discountsHtml}
+
+        <h3 style="color: #444; margin-top: 20px;">Order Summary</h3>
+        <table style="width: 100%; margin-top: 10px;">
           <tr><td>Subtotal:</td><td style="text-align: right;">₪${subtotal.toFixed(2)}</td></tr>
           <tr><td>Shipping:</td><td style="text-align: right;">₪${shippingCost.toFixed(2)}</td></tr>
           <tr><td style="font-weight: bold;">Total:</td><td style="text-align: right; font-weight: bold;">₪${total.toFixed(2)}</td></tr>

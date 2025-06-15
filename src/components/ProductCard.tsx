@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
@@ -62,7 +63,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           />
 
           {product.originalPrice && (
-            <Badge variant="destructive" className="absolute top-4 left-4 z-10">
+            <Badge variant="destructive" className="absolute top-4 left-4 z-10 rounded-md">
                 {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
             </Badge>
           )}

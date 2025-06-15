@@ -78,7 +78,7 @@ export const ProductDetails = ({ product, selectedColor, setSelectedColor }: Pro
               <p className="text-2xl text-muted-foreground line-through">₪{product.originalPrice}</p>
             )}
             {product.originalPrice && (
-              <Badge variant="destructive" className="text-base">
+              <Badge variant="destructive" className="text-base rounded-md">
                 {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
               </Badge>
             )}

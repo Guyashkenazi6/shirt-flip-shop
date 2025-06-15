@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
@@ -27,7 +28,7 @@
     --accent: 0 0% 12%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 347 89% 25%; /* Deeper Red for Sale tags */
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 15%;
@@ -61,7 +62,7 @@
     --muted-foreground: 0 0% 70%;
     --accent: 0 0% 12%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 347 89% 25%; /* Deeper Red for Sale tags */
     --destructive-foreground: 0 0% 100%;
     --border: 0 0% 15%;
     --input: 0 0% 10%;

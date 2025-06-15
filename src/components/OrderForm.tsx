@@ -35,6 +35,7 @@ export const OrderForm = () => {
   const [discountAmount, setDiscountAmount] = useState(0);
   const [appliedDiscountCode, setAppliedDiscountCode] = useState<string | null>(null);
 
+  const summerSaleDiscount = cartCount * 20;
   const baseShippingCost = 15;
   const shippingCost = cartCount >= 2 ? 0 : baseShippingCost;
   const bundleDiscount = cartCount >= 3 ? 20 : 0;
@@ -94,7 +95,15 @@ export const OrderForm = () => {
           cartItems: orderDetailsForEmail,
           subtotal: cartTotal,
           shippingCost,
-          total
+          total,
+          discounts: {
+            summerSale: summerSaleDiscount,
+            bundleOffer: bundleDiscount,
+            coupon: appliedDiscountCode ? {
+              code: appliedDiscountCode,
+              amount: discountAmount,
+            } : null,
+          }
         },
       });
 
