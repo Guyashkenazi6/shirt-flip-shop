@@ -1,4 +1,3 @@
-
 export interface Color {
   name: string;
   value: string;
@@ -106,7 +105,21 @@ export const products: Product[] = [
     description: "A strategic design that speaks to vision and ambition. The pawn sees a king in the mirror, representing the potential within.",
     isNewArrival: false,
     colors: [
-      { name: "Black", value: "#000000", backImage: "/lovable-uploads/dc4bb375-e0d1-4689-9e3c-077b488db99b.png", frontImage: "/lovable-uploads/f2822c2b-2351-4f3c-8c9a-18adfa0044c4.png" }
+      { name: "Black", value: "#000000", backImage: "/lovable-uploads/dc4bb375-e0d1-4689-9e3c-077b488db99b.png", frontImage: "/lovable-uploads/f2822c2b-2351-4f3c-8c9a-18adfa0044c4.png" },
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/64bc7694-8dc1-4b4e-8be9-301454d29859.png", frontImage: "/lovable-uploads/aa562d8a-6b86-4aa4-ac04-5377a0163c42.png" }
+    ]
+  },
+  {
+    id: 8,
+    name: "Balance",
+    backImage: "/lovable-uploads/12a3539a-2465-45a8-91f8-622a452d807a.png",
+    frontImage: "/lovable-uploads/58830503-4389-45d8-ac00-6e96d0639c00.png",
+    price: 130,
+    description: "The state of balancing your mind, body, and spirit, where priorities align with your true self, leading to inner peace, clarity, and fulfillment.",
+    isNewArrival: false,
+    colors: [
+      { name: "Black", value: "#000000", backImage: "/lovable-uploads/12a3539a-2465-45a8-91f8-622a452d807a.png", frontImage: "/lovable-uploads/58830503-4389-45d8-ac00-6e96d0639c00.png" },
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/181ac141-ba2c-4416-b24f-d24e54d88206.png", frontImage: "/lovable-uploads/e3134f55-c059-467b-81b5-4fe36d6b3121.png" }
     ]
   }
 ];

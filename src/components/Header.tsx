@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export const Header = () => {
@@ -8,7 +8,21 @@ export const Header = () => {
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Smooth scroll for anchor links, instant for page links
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  };
+
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -18,7 +32,7 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" onClick={handleNavClick} className="flex items-center">
             <img 
-              src="/lovable-uploads/7e350fb6-daf2-4a3e-bd4a-47fca6cb2b9e.png" 
+              src="/lovable-uploads/f621a571-f1d0-485b-a45c-1f762898efee.png" 
               alt="AG Logo" 
               className="h-16 w-auto"
             />
@@ -37,6 +51,7 @@ export const Header = () => {
             </Link>
             <a 
               href="/#products" 
+              onClick={(e) => handleAnchorClick(e, '#products')}
               className="text-white hover:text-gray-300 transition-colors duration-200"
             >
               Products
@@ -49,6 +64,15 @@ export const Header = () => {
               }`}
             >
               Connect Us
+            </Link>
+            <Link 
+              to="/track-order" 
+              onClick={handleNavClick}
+              className={`text-white hover:text-gray-300 transition-colors duration-200 ${
+                location.pathname === '/track-order' ? 'border-b border-white' : ''
+              }`}
+            >
+              Track Order
             </Link>
           </nav>
 
@@ -82,7 +106,7 @@ export const Header = () => {
               </Link>
               <a 
                 href="/#products"
-                onClick={handleNavClick} 
+                onClick={(e) => handleAnchorClick(e, '#products')}
                 className="text-white hover:text-gray-300 transition-colors duration-200"
               >
                 Products
@@ -95,6 +119,15 @@ export const Header = () => {
                 }`}
               >
                 Connect Us
+              </Link>
+              <Link 
+                to="/track-order" 
+                onClick={handleNavClick}
+                className={`text-white hover:text-gray-300 transition-colors duration-200 ${
+                  location.pathname === '/track-order' ? 'border-b border-white pb-1' : ''
+                }`}
+              >
+                Track Order
               </Link>
             </div>
           </nav>

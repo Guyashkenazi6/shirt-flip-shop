@@ -5,14 +5,14 @@ import { Phone, Instagram } from "lucide-react";
 
 const ConnectPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
+    <div className="min-h-screen bg-black text-white">
       <Header />
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-2xl mx-auto text-center">
           {/* Header */}
           <div className="mb-12">
             <img 
-              src="/lovable-uploads/0fc157e6-7db0-49ee-8033-b272a9797a03.png" 
+              src="/lovable-uploads/f621a571-f1d0-485b-a45c-1f762898efee.png" 
               alt="Guy Ashkenazi Logo" 
               className="h-16 w-auto mx-auto mb-6"
             />
