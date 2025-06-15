@@ -3,8 +3,12 @@ import { Header } from "@/components/Header";
 import { ProductGrid } from "@/components/ProductGrid";
 import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
+import { products } from "@/data/products";
 
 const Index = () => {
+  const newArrivals = products.filter(p => p.isNewArrival);
+  const otherProducts = products.filter(p => !p.isNewArrival);
+
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Header />
@@ -31,7 +35,8 @@ const Index = () => {
           </div>
         </div>
         
-        <ProductGrid />
+        <ProductGrid title="New Arrivals" products={newArrivals} />
+        <ProductGrid title="Our Collection" products={otherProducts} id="products" />
         <Testimonials />
       </main>
       <Footer />
