@@ -7,8 +7,8 @@ export const FeaturedDesigns = () => {
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="rounded-lg overflow-hidden card-hover">
             <img 
-              src="/lovable-uploads/d1abc36f-6a20-4ec9-95fe-42b5803b8a5d.png"
-              alt="Featured t-shirt designs"
+              src="/lovable-uploads/6fd628f7-e189-4ee9-aec2-106dd9a363b6.png"
+              alt="Customer wearing a t-shirt design at a festival"
               className="w-full h-full object-cover"
             />
         </div>
