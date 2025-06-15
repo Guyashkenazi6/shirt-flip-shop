@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 
@@ -112,7 +113,7 @@ export const ProductDetails = ({ product, selectedColor, setSelectedColor }: Pro
         {/* Features */}
         <div className="space-y-3 text-muted-foreground">
           <p className="flex items-center gap-2">
-            <span className="text-green-400">✓</span> Premium cotton blend
+            <span className="text-green-400">✓</span> 100% cotton | 230 gsm
           </p>
           <p className="flex items-center gap-2">
             <span className="text-green-400">✓</span> Hand-printed design
