@@ -30,13 +30,31 @@ export const SizeRecommender = () => {
     }
     setError("");
 
-    // Simple logic for size recommendation
-    if (h < 165 && w < 60) setRecommendedSize("S");
-    else if (h >= 165 && h < 175 && w >= 60 && w < 75) setRecommendedSize("M");
-    else if (h >= 175 && h < 185 && w >= 75 && w < 90) setRecommendedSize("L");
-    else if (h >= 185 && h < 195 && w >= 90 && w < 105) setRecommendedSize("XL");
-    else if (h >= 195 || w >= 105) setRecommendedSize("XXL");
-    else setRecommendedSize("M"); // Default fallback
+    if (h <= 170) {
+      if (w <= 70) {
+        setRecommendedSize("S");
+      } else if (w >= 71 && w <= 80) {
+        setRecommendedSize("M");
+      } else {
+        setRecommendedSize("L");
+      }
+    } else if (h >= 171 && h <= 180) {
+      if (w <= 75) {
+        setRecommendedSize("M");
+      } else if (w >= 76 && w <= 85) {
+        setRecommendedSize("L");
+      } else {
+        setRecommendedSize("XL");
+      }
+    } else { // h >= 181
+      if (w <= 80) {
+        setRecommendedSize("L");
+      } else if (w >= 81 && w <= 90) {
+        setRecommendedSize("XL");
+      } else {
+        setRecommendedSize("XXL");
+      }
+    }
   };
 
   const resetState = (open: boolean) => {
