@@ -19,34 +19,6 @@ export interface Product {
 
 export const products: Product[] = [
   {
-    id: 1,
-    name: "Freedom Butterfly",
-    backImage: "/lovable-uploads/c63e0397-5b6a-4adf-b9ea-57aa2cad8269.png",
-    frontImage: "/lovable-uploads/8dff6775-bbba-48e8-bdde-204a74d2d906.png",
-    price: 130,
-    description: "A modern take on freedom and transformation. This unique design features a melting butterfly effect that represents breaking free from constraints.",
-    isNewArrival: true,
-    colors: [
-      { name: "Brown", value: "#8B4513", backImage: "/lovable-uploads/c63e0397-5b6a-4adf-b9ea-57aa2cad8269.png", frontImage: "/lovable-uploads/8dff6775-bbba-48e8-bdde-204a74d2d906.png" },
-      { name: "Black", value: "#000000", backImage: "/lovable-uploads/936f6dee-3bfd-4544-bd50-19dfa0876025.png", frontImage: "/lovable-uploads/a96d6f4d-84ba-4237-aa44-fed5403705e4.png" },
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/58b885b1-c476-46a6-a044-d892b4d81da7.png", frontImage: "/lovable-uploads/844f04d9-42ad-4212-8242-c1870dc149fb.png" }
-    ]
-  },
-  {
-    id: 2,
-    name: "Ship's Wheel",
-    backImage: "/lovable-uploads/56feff94-d854-4d45-be88-35ed05e8d43f.png",
-    frontImage: "/lovable-uploads/93d0690c-a3f2-462b-9f64-ba225911670d.png",
-    price: 130,
-    description: "Navigate your style with this maritime-inspired design. The ship's wheel represents direction, control, and the journey of life.",
-    isNewArrival: true,
-    colors: [
-      { name: "Gray", value: "#36454F", backImage: "/lovable-uploads/56feff94-d854-4d45-be88-35ed05e8d43f.png", frontImage: "/lovable-uploads/93d0690c-a3f2-462b-9f64-ba225911670d.png" },
-      { name: "Black", value: "#000000", backImage: "/lovable-uploads/1b9c853b-a443-40b7-8b9e-32561ea37756.png", frontImage: "/lovable-uploads/7a4fede2-2083-495d-a59d-104a67214fd1.png" },
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/4d173eb9-b02c-4242-93dd-4b39558ef278.png", frontImage: "/lovable-uploads/6a44930d-d79f-4e7e-9421-75148bae1bb8.png" }
-    ]
-  },
-  {
     id: 5,
     name: "Angels",
     backImage: "/lovable-uploads/348f8da6-e309-47c6-ac4e-36befb85bf97.png",
@@ -70,6 +42,34 @@ export const products: Product[] = [
     colors: [
       { name: "Black", value: "#000000", backImage: "/lovable-uploads/4515f781-3555-4ebe-a20c-5fe958435795.png", frontImage: "/lovable-uploads/b3411e5a-7d22-4136-9747-b0aa71456b05.png" },
       { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/cf6d47a1-a778-443e-9789-b659044821df.png", frontImage: "/lovable-uploads/2745deb3-8280-4eb6-8fea-a40045924e69.png" }
+    ]
+  },
+  {
+    id: 2,
+    name: "Ship's Wheel",
+    backImage: "/lovable-uploads/56feff94-d854-4d45-be88-35ed05e8d43f.png",
+    frontImage: "/lovable-uploads/93d0690c-a3f2-462b-9f64-ba225911670d.png",
+    price: 130,
+    description: "Navigate your style with this maritime-inspired design. The ship's wheel represents direction, control, and the journey of life.",
+    isNewArrival: true,
+    colors: [
+      { name: "Gray", value: "#36454F", backImage: "/lovable-uploads/56feff94-d854-4d45-be88-35ed05e8d43f.png", frontImage: "/lovable-uploads/93d0690c-a3f2-462b-9f64-ba225911670d.png" },
+      { name: "Black", value: "#000000", backImage: "/lovable-uploads/1b9c853b-a443-40b7-8b9e-32561ea37756.png", frontImage: "/lovable-uploads/7a4fede2-2083-495d-a59d-104a67214fd1.png" },
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/4d173eb9-b02c-4242-93dd-4b39558ef278.png", frontImage: "/lovable-uploads/6a44930d-d79f-4e7e-9421-75148bae1bb8.png" }
+    ]
+  },
+  {
+    id: 1,
+    name: "Freedom Butterfly",
+    backImage: "/lovable-uploads/c63e0397-5b6a-4adf-b9ea-57aa2cad8269.png",
+    frontImage: "/lovable-uploads/8dff6775-bbba-48e8-bdde-204a74d2d906.png",
+    price: 130,
+    description: "A modern take on freedom and transformation. This unique design features a melting butterfly effect that represents breaking free from constraints.",
+    isNewArrival: true,
+    colors: [
+      { name: "Brown", value: "#8B4513", backImage: "/lovable-uploads/c63e0397-5b6a-4adf-b9ea-57aa2cad8269.png", frontImage: "/lovable-uploads/8dff6775-bbba-48e8-bdde-204a74d2d906.png" },
+      { name: "Black", value: "#000000", backImage: "/lovable-uploads/936f6dee-3bfd-4544-bd50-19dfa0876025.png", frontImage: "/lovable-uploads/a96d6f4d-84ba-4237-aa44-fed5403705e4.png" },
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/58b885b1-c476-46a6-a044-d892b4d81da7.png", frontImage: "/lovable-uploads/844f04d9-42ad-4212-8242-c1870dc149fb.png" }
     ]
   },
   {
