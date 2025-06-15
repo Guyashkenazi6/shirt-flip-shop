@@ -1,5 +1,4 @@
 
-```tsx
 import React from 'react';
 
 export const Hero = () => {
@@ -24,8 +23,8 @@ export const Hero = () => {
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <div className="rounded-lg overflow-hidden shadow-2xl shadow-white/5">
               <img 
-                src="/lovable-uploads/8abb3149-0eba-47e2-9a2a-45a4d9c3622e.png"
-                alt="Person wearing a t-shirt with custom design at a festival"
+                src="/lovable-uploads/4ef3a371-e710-4ce6-9e54-3c0bda258034.png"
+                alt="Model wearing AG t-shirt"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -35,4 +34,3 @@ export const Hero = () => {
     </section>
   );
 };
-```
