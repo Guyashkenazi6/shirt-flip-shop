@@ -14,75 +14,53 @@ serve(async (req) => {
   try {
     const { orderData, cartItems, subtotal, shippingCost, total, discounts } = await req.json();
 
-    const itemsTbodyHtml = cartItems.map(item => `
-      <tr>
-        <td style="padding: 12px 8px; border-bottom: 1px solid #eaeaea; vertical-align: top;">${item.name} (${item.size}, ${item.color})</td>
-        <td style="padding: 12px 8px; border-bottom: 1px solid #eaeaea; text-align: center; vertical-align: top;">${item.quantity}</td>
-        <td style="padding: 12px 8px; border-bottom: 1px solid #eaeaea; text-align: right; vertical-align: top;">₪${item.price.toFixed(2)}</td>
-        <td style="padding: 12px 8px; border-bottom: 1px solid #eaeaea; text-align: right; vertical-align: top;">₪${(item.price * item.quantity).toFixed(2)}</td>
-      </tr>
-    `).join('');
+    // Use a proper table for order details for clear alignment
+    const itemsTableHtml = `
+      <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <thead>
+          <tr>
+            <th style="padding: 8px; text-align: left; border-bottom: 2px solid #ddd; font-weight: 600; color: #555;">Product</th>
+            <th style="padding: 8px; text-align: center; border-bottom: 2px solid #ddd; font-weight: 600; color: #555;">Qty</th>
+            <th style="padding: 8px; text-align: right; border-bottom: 2px solid #ddd; font-weight: 600; color: #555;">Price</th>
+            <th style="padding: 8px; text-align: right; border-bottom: 2px solid #ddd; font-weight: 600; color: #555;">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${cartItems.map(item => `
+            <tr>
+              <td style="padding: 12px 8px; border-bottom: 1px solid #eaeaea; vertical-align: top;">${item.name} (${item.size}, ${item.color})</td>
+              <td style="padding: 12px 8px; border-bottom: 1px solid #eaeaea; text-align: center; vertical-align: top;">${item.quantity}</td>
+              <td style="padding: 12px 8px; border-bottom: 1px solid #eaeaea; text-align: right; vertical-align: top;">₪${item.price.toFixed(2)}</td>
+              <td style="padding: 12px 8px; border-bottom: 1px solid #eaeaea; text-align: right; vertical-align: top;">₪${(item.price * item.quantity).toFixed(2)}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
 
     const summaryRows = [];
-    // Subtotal
-    summaryRows.push(`
-      <tr>
-        <td style="padding: 4px 0;">Subtotal:</td>
-        <td style="text-align: right; padding: 4px 0;">₪${subtotal.toFixed(2)}</td>
-      </tr>
-    `);
+    summaryRows.push(`<tr><td style="padding: 4px 0;">Subtotal:</td><td style="text-align: right; padding: 4px 0;">₪${subtotal.toFixed(2)}</td></tr>`);
 
-    // Shipping
     const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
     if (shippingCost === 0 && itemCount >= 2) {
-      summaryRows.push(`
-        <tr>
-          <td style="padding: 4px 0; color: #22c55e;">Shipping:</td>
-          <td style="text-align: right; padding: 4px 0; color: #22c55e;">
-            FREE 
-            <span style="font-size: 12px; color: #6b7280; font-weight: normal;">(Free shipping on 2+ items)</span>
-          </td>
-        </tr>
-      `);
+      summaryRows.push(`<tr><td style="padding: 4px 0; color: #22c55e;">Shipping:</td><td style="text-align: right; padding: 4px 0; color: #22c55e;">FREE <span style="font-size: 12px; color: #6b7280; font-weight: normal;">(2+ items)</span></td></tr>`);
     } else if (shippingCost > 0) {
-      summaryRows.push(`
-        <tr>
-          <td style="padding: 4px 0;">Shipping:</td>
-          <td style="text-align: right; padding: 4px 0;">₪${shippingCost.toFixed(2)}</td>
-        </tr>
-      `);
+      summaryRows.push(`<tr><td style="padding: 4px 0;">Shipping:</td><td style="text-align: right; padding: 4px 0;">₪${shippingCost.toFixed(2)}</td></tr>`);
     }
 
-    // Discounts
     if (discounts?.coupon?.amount > 0) {
-      summaryRows.push(`
-        <tr>
-          <td style="padding: 4px 0; color: #22c55e;">Discount (${discounts.coupon.code}):</td>
-          <td style="text-align: right; padding: 4px 0; color: #22c55e;">-₪${discounts.coupon.amount.toFixed(2)}</td>
-        </tr>
-      `);
+      summaryRows.push(`<tr><td style="padding: 4px 0; color: #22c55e;">Discount (${discounts.coupon.code}):</td><td style="text-align: right; padding: 4px 0; color: #22c55e;">-₪${discounts.coupon.amount.toFixed(2)}</td></tr>`);
     }
     if (discounts?.bundleOffer > 0) {
-      summaryRows.push(`
-        <tr>
-          <td style="padding: 4px 0; color: #22c55e;">Bundle Offer (3+ items):</td>
-          <td style="text-align: right; padding: 4px 0; color: #22c55e;">-₪${discounts.bundleOffer.toFixed(2)}</td>
-        </tr>
-      `);
+      summaryRows.push(`<tr><td style="padding: 4px 0; color: #22c55e;">Bundle Offer (3+ items):</td><td style="text-align: right; padding: 4px 0; color: #22c55e;">-₪${discounts.bundleOffer.toFixed(2)}</td></tr>`);
     }
 
-    // Total
-    summaryRows.push(`
-      <tr style="font-weight: bold; border-top: 1px solid #ddd;">
-        <td style="padding: 10px 0 0 0;">Total:</td>
-        <td style="text-align: right; padding: 10px 0 0 0;">₪${total.toFixed(2)}</td>
-      </tr>
-    `);
+    summaryRows.push(`<tr style="font-weight: bold; border-top: 1px solid #ddd; font-size: 1.1em;"><td style="padding: 10px 0 0 0;">Total:</td><td style="text-align: right; padding: 10px 0 0 0;">₪${total.toFixed(2)}</td></tr>`);
     
-    const summaryTbodyHtml = summaryRows.join('');
+    const summaryTableHtml = `<table style="width: 100%;">${summaryRows.join('')}</table>`;
 
     const customerInfoHtml = `
-      <div style="margin-top: 15px; line-height: 1.8;">
+      <div style="line-height: 1.8;">
         <p style="margin: 0;"><strong style="display: inline-block; width: 90px; color: #555;">Name:</strong> ${orderData.fullName}</p>
         <p style="margin: 0;"><strong style="display: inline-block; width: 90px; color: #555;">Email:</strong> ${orderData.email}</p>
         <p style="margin: 0;"><strong style="display: inline-block; width: 90px; color: #555;">Phone:</strong> ${orderData.phone}</p>
@@ -106,26 +84,10 @@ serve(async (req) => {
           <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
 
           <h2 style="color: #111; font-size: 20px; font-weight: 600; margin: 25px 0 10px;">Order Details</h2>
-          <table style="width: 100%; border-collapse: collapse;">
-            <thead>
-              <tr>
-                <th style="padding: 8px; text-align: left; border-bottom: 2px solid #ddd; font-weight: 600; color: #555;">Product</th>
-                <th style="padding: 8px; text-align: center; border-bottom: 2px solid #ddd; font-weight: 600; color: #555;">Quantity</th>
-                <th style="padding: 8px; text-align: right; border-bottom: 2px solid #ddd; font-weight: 600; color: #555;">Price</th>
-                <th style="padding: 8px; text-align: right; border-bottom: 2px solid #ddd; font-weight: 600; color: #555;">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${itemsTbodyHtml}
-            </tbody>
-          </table>
+          ${itemsTableHtml}
 
           <h2 style="color: #111; font-size: 20px; font-weight: 600; margin: 30px 0 10px;">Order Summary</h2>
-          <table style="width: 100%;">
-            <tbody>
-              ${summaryTbodyHtml}
-            </tbody>
-          </table>
+          ${summaryTableHtml}
 
           <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
           
@@ -167,6 +129,7 @@ serve(async (req) => {
     });
 
   } catch (err) {
+    console.error(`Error in send-order-email: ${err.message}`);
     return new Response(String(err?.message ?? err), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 500,
