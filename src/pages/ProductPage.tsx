@@ -1,9 +1,18 @@
+
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProductDetails } from "@/components/ProductDetails";
 import { AddToCartForm } from "@/components/AddToCartForm";
+
+// Define a consistent type for Color to match child components
+interface Color {
+  name: string;
+  value: string;
+  backImage: string;
+  frontImage?: string;
+}
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -57,7 +66,7 @@ const ProductPage = () => {
   ];
 
   const product = products.find(p => p.id === parseInt(id || "1")) || products[0];
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  const [selectedColor, setSelectedColor] = useState<Color>(product.colors[0]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
