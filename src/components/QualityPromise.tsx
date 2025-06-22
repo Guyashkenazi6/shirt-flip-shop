@@ -8,8 +8,8 @@ export const QualityPromise = () => {
         <div className="md:order-2">
             <div className="rounded-lg overflow-hidden card-hover">
                 <img 
-                  src="/lovable-uploads/098b5cb0-68c4-4c37-8dd4-f3c2a7ce631c.png"
-                  alt="T-shirt quality details"
+                  src="/lovable-uploads/e09b2da3-ea72-4c62-a6c7-4cd848d641b9.png"
+                  alt="Premium 100% cotton t-shirt quality showcase"
                   className="w-full h-full object-cover"
                 />
             </div>

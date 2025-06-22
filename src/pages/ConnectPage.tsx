@@ -84,10 +84,10 @@ const ConnectPage = () => {
                 <strong className="text-white">Shipping:</strong> Worldwide
               </div>
               <div>
-                <strong className="text-white">Delivery:</strong> 7-10 business days
+                <strong className="text-white">Delivery:</strong> 7 to 12 business days
               </div>
               <div>
-                <strong className="text-white">Quality:</strong> Premium cotton blend
+                <strong className="text-white">Quality:</strong> Premium 100% cotton
               </div>
             </div>
           </div>

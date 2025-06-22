@@ -122,7 +122,7 @@ export const ProductDetails = ({ product, selectedColor, setSelectedColor }: Pro
             <span className="text-green-400">✓</span> Machine washable
           </p>
           <p className="flex items-center gap-2">
-            <span className="text-green-400">✓</span> Estimated delivery: 7-10 business days
+            <span className="text-green-400">✓</span> Estimated delivery: 7 to 12 business days
           </p>
         </div>
 
