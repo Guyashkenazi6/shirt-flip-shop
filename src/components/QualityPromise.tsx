@@ -1,17 +1,13 @@
-
 import React from 'react';
-
 export const QualityPromise = () => {
-  return (
-    <section className="animate-fade-in-up" style={{ animationDelay: '0.4s', opacity: 0 }}>
+  return <section className="animate-fade-in-up" style={{
+    animationDelay: '0.4s',
+    opacity: 0
+  }}>
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="md:order-2">
             <div className="rounded-lg overflow-hidden card-hover">
-                <img 
-                  src="/lovable-uploads/e09b2da3-ea72-4c62-a6c7-4cd848d641b9.png"
-                  alt="Premium 100% cotton t-shirt quality showcase"
-                  className="w-full h-full object-cover"
-                />
+                <img alt="Premium 100% cotton t-shirt quality showcase" className="w-full h-full object-cover" src="/lovable-uploads/3e23d8ac-75c9-43f1-af7b-f2e0e6245228.jpg" />
             </div>
         </div>
         <div className="md:order-1">
@@ -21,6 +17,5 @@ export const QualityPromise = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
