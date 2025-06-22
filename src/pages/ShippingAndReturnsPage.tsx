@@ -1,14 +1,12 @@
-
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-
 const ShippingAndReturnsPage = () => {
-  return (
-    <div className="min-h-screen bg-black text-white">
+  return <div className="min-h-screen bg-black text-white">
       <Header />
       <main className="container mx-auto px-4 py-12 md:py-24 animate-fade-in-up">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-shadow">Terms & Conditions</h1>
-        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-12 text-gray-300">Shipping & Returns Policy</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-12 text-gray-300">
+      </h2>
         
         <div className="max-w-4xl mx-auto space-y-12 text-muted-foreground">
           <section id="shipping">
@@ -89,8 +87,6 @@ const ShippingAndReturnsPage = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default ShippingAndReturnsPage;
