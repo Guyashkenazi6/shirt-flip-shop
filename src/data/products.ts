@@ -1,4 +1,3 @@
-
 export interface Color {
   name: string;
   value: string;
@@ -22,30 +21,30 @@ export const products: Product[] = [
   {
     id: 5,
     name: "Angels",
-    backImage: "/lovable-uploads/348f8da6-e309-47c6-ac4e-36befb85bf97.png",
-    frontImage: "/lovable-uploads/cc74473a-f8f8-4881-b452-c29c5acb7168.png",
+    backImage: "/lovable-uploads/d245d973-d689-4b4e-a88f-ed78fae10ddb.png",
+    frontImage: "/lovable-uploads/bd4d2908-80bf-499f-892e-8ff63e8f4601.png",
     price: 130,
     originalPrice: 150,
     description: "A divine design that blends classical art with a modern streetwear aesthetic.",
     isNewArrival: true,
     colors: [
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/348f8da6-e309-47c6-ac4e-36befb85bf97.png", frontImage: "/lovable-uploads/cc74473a-f8f8-4881-b452-c29c5acb7168.png" },
-      { name: "Black", value: "#000000", backImage: "/lovable-uploads/38595089-2348-4420-89cf-d615f03e9ff9.png", frontImage: "/lovable-uploads/7856bdbd-a36f-4200-b70b-2c036838788a.png" }
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/bd4d2908-80bf-499f-892e-8ff63e8f4601.png", frontImage: "/lovable-uploads/d9bc5df7-8646-4581-b1a2-9c4bf1a18026.png" },
+      { name: "Black", value: "#000000", backImage: "/lovable-uploads/d245d973-d689-4b4e-a88f-ed78fae10ddb.png", frontImage: "/lovable-uploads/c434a493-6396-47bd-8409-8d575ba0a618.png" }
     ]
   },
   {
     id: 3,
     name: "Surfboard Wave",
-    backImage: "/lovable-uploads/4515f781-3555-4ebe-a20c-5fe958435795.png",
-    frontImage: "/lovable-uploads/b3411e5a-7d22-4136-9747-b0aa71456b05.png",
+    backImage: "/lovable-uploads/81898586-da5c-4526-ac0d-61c3e2045013.png",
+    frontImage: "/lovable-uploads/516c340f-a70d-4e54-b4b7-d8b79da0aaf2.png",
     price: 130,
     originalPrice: 150,
     description: "Ride the wave of style with this surf-inspired design. Combines ocean vibes with street fashion for the ultimate beach-to-city look.",
     isNewArrival: true,
     colors: [
-      { name: "Black", value: "#000000", backImage: "/lovable-uploads/4515f781-3555-4ebe-a20c-5fe958435795.png", frontImage: "/lovable-uploads/b3411e5a-7d22-4136-9747-b0aa71456b05.png" },
+      { name: "Black", value: "#000000", backImage: "/lovable-uploads/81898586-da5c-4526-ac0d-61c3e2045013.png", frontImage: "/lovable-uploads/516c340f-a70d-4e54-b4b7-d8b79da0aaf2.png" },
       { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/cf6d47a1-a778-443e-9789-b659044821df.png", frontImage: "/lovable-uploads/2745deb3-8280-4eb6-8fea-a40045924e69.png" },
-      { name: "Navy", value: "#202A44", backImage: "/lovable-uploads/2e90c5f3-e0c5-46f0-8938-cb9b9d04a976.png", frontImage: "/lovable-uploads/d72f57db-f1a9-4d6a-afbd-fb8cd246d268.png" }
+      { name: "Navy", value: "#202A44", backImage: "/lovable-uploads/49c285ff-0ad9-4003-be3e-a3c6e2529f4d.png", frontImage: "/lovable-uploads/fa035847-2a0c-4153-81e4-6b2bbb5dee1b.png" }
     ]
   },
   {
@@ -138,8 +137,8 @@ export const products: Product[] = [
   {
     id: 11,
     name: "Don't Quit",
-    backImage: "/lovable-uploads/469467b8-5e16-4671-aeba-6f778d16548a.png", // white back
-    frontImage: "/lovable-uploads/ae59d19f-108c-47d4-ade5-fdf4732945d3.png", // white front
+    backImage: "/lovable-uploads/469467b8-5e16-4671-aeba-6f778d16548a.png",
+    frontImage: "/lovable-uploads/ae59d19f-108c-47d4-ade5-fdf4732945d3.png",
     price: 130,
     originalPrice: 150,
     description: "A message of perseverance. The simple 'Don't Quit' on the front is a personal reminder, while the frayed rope on the back symbolizes holding on through tension. A powerful statement piece.",
