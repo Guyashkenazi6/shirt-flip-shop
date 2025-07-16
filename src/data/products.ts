@@ -22,30 +22,29 @@ export const products: Product[] = [
   {
     id: 5,
     name: "Angels",
-    backImage: "/lovable-uploads/348f8da6-e309-47c6-ac4e-36befb85bf97.png",
-    frontImage: "/lovable-uploads/cc74473a-f8f8-4881-b452-c29c5acb7168.png",
+    backImage: "/lovable-uploads/833c136c-37d1-4d70-b596-4d033ce20310.png",
+    frontImage: "/lovable-uploads/09d5213b-e377-4054-a4df-525dfc67bee4.png",
     price: 130,
     originalPrice: 150,
     description: "A divine design that blends classical art with a modern streetwear aesthetic.",
     isNewArrival: true,
     colors: [
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/348f8da6-e309-47c6-ac4e-36befb85bf97.png", frontImage: "/lovable-uploads/cc74473a-f8f8-4881-b452-c29c5acb7168.png" },
-      { name: "Black", value: "#000000", backImage: "/lovable-uploads/38595089-2348-4420-89cf-d615f03e9ff9.png", frontImage: "/lovable-uploads/7856bdbd-a36f-4200-b70b-2c036838788a.png" }
+      { name: "Black", value: "#000000", backImage: "/lovable-uploads/833c136c-37d1-4d70-b596-4d033ce20310.png", frontImage: "/lovable-uploads/09d5213b-e377-4054-a4df-525dfc67bee4.png" },
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/09d5213b-e377-4054-a4df-525dfc67bee4.png", frontImage: "/lovable-uploads/833c136c-37d1-4d70-b596-4d033ce20310.png" }
     ]
   },
   {
     id: 3,
     name: "Surfboard Wave",
-    backImage: "/lovable-uploads/4515f781-3555-4ebe-a20c-5fe958435795.png",
-    frontImage: "/lovable-uploads/b3411e5a-7d22-4136-9747-b0aa71456b05.png",
+    backImage: "/lovable-uploads/fd42e409-0531-40e4-9609-1fba869a9cbb.png",
+    frontImage: "/lovable-uploads/089442be-6678-423d-a0a6-f80e8c14be79.png",
     price: 130,
     originalPrice: 150,
     description: "Ride the wave of style with this surf-inspired design. Combines ocean vibes with street fashion for the ultimate beach-to-city look.",
     isNewArrival: true,
     colors: [
-      { name: "Black", value: "#000000", backImage: "/lovable-uploads/4515f781-3555-4ebe-a20c-5fe958435795.png", frontImage: "/lovable-uploads/b3411e5a-7d22-4136-9747-b0aa71456b05.png" },
-      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/cf6d47a1-a778-443e-9789-b659044821df.png", frontImage: "/lovable-uploads/2745deb3-8280-4eb6-8fea-a40045924e69.png" },
-      { name: "Navy", value: "#202A44", backImage: "/lovable-uploads/2e90c5f3-e0c5-46f0-8938-cb9b9d04a976.png", frontImage: "/lovable-uploads/d72f57db-f1a9-4d6a-afbd-fb8cd246d268.png" }
+      { name: "Black", value: "#000000", backImage: "/lovable-uploads/fd42e409-0531-40e4-9609-1fba869a9cbb.png", frontImage: "/lovable-uploads/089442be-6678-423d-a0a6-f80e8c14be79.png" },
+      { name: "Navy", value: "#202A44", backImage: "/lovable-uploads/fa20bce7-f7d3-4ec4-a54a-0ca1b073ef5a.png", frontImage: "/lovable-uploads/f6d9b09a-6d75-4d0b-a6b1-5cc06f249972.png" }
     ]
   },
   {
@@ -138,8 +137,8 @@ export const products: Product[] = [
   {
     id: 11,
     name: "Don't Quit",
-    backImage: "/lovable-uploads/469467b8-5e16-4671-aeba-6f778d16548a.png", // white back
-    frontImage: "/lovable-uploads/ae59d19f-108c-47d4-ade5-fdf4732945d3.png", // white front
+    backImage: "/lovable-uploads/469467b8-5e16-4671-aeba-6f778d16548a.png",
+    frontImage: "/lovable-uploads/ae59d19f-108c-47d4-ade5-fdf4732945d3.png",
     price: 130,
     originalPrice: 150,
     description: "A message of perseverance. The simple 'Don't Quit' on the front is a personal reminder, while the frayed rope on the back symbolizes holding on through tension. A powerful statement piece.",
@@ -173,6 +172,20 @@ export const products: Product[] = [
     isNewArrival: false,
     colors: [
       { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/5e7d78e8-10fd-4c0e-8003-8d2be86d8ef9.png", frontImage: "/lovable-uploads/92c595d4-4645-4c1d-974d-67d9b46f29a7.png" }
+    ]
+  },
+  {
+    id: 12,
+    name: "Zen Figures",
+    backImage: "/lovable-uploads/666f801d-2c5e-48eb-9c7a-58559bf7ba2a.png",
+    frontImage: "/lovable-uploads/9a93f1e8-bf89-469c-bf52-aa2546472d98.png",
+    price: 130,
+    originalPrice: 150,
+    description: "A minimalist design featuring meditative figures representing inner peace and mindfulness.",
+    isNewArrival: false,
+    colors: [
+      { name: "White", value: "#FFFFFF", backImage: "/lovable-uploads/666f801d-2c5e-48eb-9c7a-58559bf7ba2a.png", frontImage: "/lovable-uploads/9a93f1e8-bf89-469c-bf52-aa2546472d98.png" },
+      { name: "Black", value: "#000000", backImage: "/lovable-uploads/9a93f1e8-bf89-469c-bf52-aa2546472d98.png", frontImage: "/lovable-uploads/666f801d-2c5e-48eb-9c7a-58559bf7ba2a.png" }
     ]
   }
 ];
