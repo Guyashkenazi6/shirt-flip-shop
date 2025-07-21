@@ -140,17 +140,15 @@ export const OrderForm = () => {
         customerName: formData.fullName
       }));
 
-      const payboxUrl = `https://link.payboxapp.com/KWi44KQqaQsA28dc7`;
-      
       toast({
-        title: "Redirecting to Paybox...",
-        description: "Your order details have been submitted."
+        title: "Order submitted successfully!",
+        description: "Redirecting to payment instructions..."
       });
 
       clearCart();
 
       setTimeout(() => {
-        window.location.href = payboxUrl;
+        navigate('/order-success');
       }, 1000);
 
     } catch (error) {

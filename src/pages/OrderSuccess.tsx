@@ -40,8 +40,8 @@ const OrderSuccess = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h1 className="text-5xl font-bold mb-4 text-green-400">Order Confirmed!</h1>
-            <p className="text-xl text-gray-300">Thank you for your purchase</p>
+            <h1 className="text-5xl font-bold mb-4 text-green-400">Order Received!</h1>
+            <p className="text-xl text-gray-300">Please complete your payment below</p>
           </div>
 
           {/* Order Details */}
@@ -67,15 +67,29 @@ const OrderSuccess = () => {
             </div>
           </div>
 
-          {/* Next Steps */}
+          {/* Payment Instructions */}
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 mb-8">
-            <h3 className="text-xl font-bold mb-4">What's Next?</h3>
-            <div className="space-y-3 text-left text-gray-300">
-              <p>✓ Order confirmation sent to your email</p>
-              <p>✓ We'll process your order within 24 hours</p>
-              <p>✓ Shipping takes 7-10 business days</p>
-              <p>✓ You'll receive tracking information once shipped</p>
+            <h3 className="text-xl font-bold mb-4 text-green-400">✅ Thank you for your order!</h3>
+            <div className="space-y-4 text-gray-300">
+              <p>To complete your payment, please send the total amount of <strong className="text-white">₪{orderDetails.total}</strong> via PayBox to the following link:</p>
+              <div className="bg-white/10 p-4 rounded border border-white/20">
+                <p className="text-sm text-gray-400 mb-2">Payment Link:</p>
+                <p className="font-mono text-blue-400 break-all">https://link.payboxapp.com/KWi44KQqaQsA28dc7</p>
+              </div>
+              <p className="text-sm">If PayBox doesn't load right away, you can return to this page and try again.</p>
+              <p className="text-sm">Once payment is confirmed, your order will be processed and shipped to your nearest post office.</p>
             </div>
+          </div>
+
+          {/* PayBox Button */}
+          <div className="mb-8">
+            <Button 
+              onClick={() => window.open('https://link.payboxapp.com/KWi44KQqaQsA28dc7', '_blank')}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 text-lg"
+            >
+              🔗 Open PayBox Link
+            </Button>
+            <p className="text-xs text-gray-400 mt-2">Opens in a new window/tab</p>
           </div>
 
           {/* Actions */}
@@ -92,8 +106,19 @@ const OrderSuccess = () => {
             </Link>
           </div>
 
+          {/* Order Status */}
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 mb-6">
+            <h4 className="text-lg font-semibold mb-2">Order Status</h4>
+            <div className="space-y-2 text-left text-gray-300 text-sm">
+              <p>✓ Order confirmation sent to your email</p>
+              <p>⏳ Waiting for payment confirmation</p>
+              <p>📦 Will be processed within 24 hours after payment</p>
+              <p>🚚 Shipping takes 7 to 12 business days</p>
+            </div>
+          </div>
+
           {/* Contact Info */}
-          <div className="mt-8 text-sm text-gray-400">
+          <div className="text-sm text-gray-400">
             <p>Questions about your order?</p>
             <p>Contact us at <a href="mailto:guy0204@gmail.com" className="text-blue-400 hover:underline">guy0204@gmail.com</a></p>
             <p>or via <a href="https://wa.me/972546742982" className="text-green-400 hover:underline">WhatsApp</a></p>
