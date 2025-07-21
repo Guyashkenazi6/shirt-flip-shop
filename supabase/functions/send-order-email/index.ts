@@ -12,7 +12,7 @@ serve(async (req) => {
   }
 
   try {
-    const { orderData, cartItems, subtotal, shippingCost, total, discounts } = await req.json();
+    const { orderNumber, orderData, cartItems, subtotal, shippingCost, total, discounts } = await req.json();
 
     // Use a proper table for order details for clear alignment
     const itemsTableHtml = `
@@ -81,7 +81,8 @@ serve(async (req) => {
       <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; margin: 0; padding: 20px;">
         <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; border: 1px solid #ddd; border-radius: 8px;">
           <h1 style="color: #111; font-size: 24px; margin: 0 0 10px;">New Order Received!</h1>
-          <p style="margin: 0 0 20px;">You've received a new order from <strong>${orderData.fullName}</strong>.</p>
+          <p style="margin: 0 0 10px;">You've received a new order from <strong>${orderData.fullName}</strong>.</p>
+          <p style="margin: 0 0 20px; font-weight: 600; color: #555;">Order Number: #${orderNumber}</p>
           
           <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
 

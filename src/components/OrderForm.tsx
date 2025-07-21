@@ -101,6 +101,8 @@ export const OrderForm = () => {
     }
 
     try {
+      const orderNumber = `AG${Date.now().toString().slice(-6)}`;
+      
       const orderDetailsForEmail = cartItems.map(item => ({
         name: item.name,
         quantity: item.quantity,
@@ -111,6 +113,7 @@ export const OrderForm = () => {
       
       const { error } = await supabase.functions.invoke('send-order-email', {
         body: { 
+          orderNumber,
           orderData: formData,
           cartItems: orderDetailsForEmail,
           subtotal: cartTotal,
@@ -130,8 +133,6 @@ export const OrderForm = () => {
       if (error) {
         throw error;
       }
-      
-      const orderNumber = `AG${Date.now().toString().slice(-6)}`;
 
       localStorage.setItem('orderDetails', JSON.stringify({
         orderNumber,
