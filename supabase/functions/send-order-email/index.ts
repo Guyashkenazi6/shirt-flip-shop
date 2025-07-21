@@ -13,10 +13,14 @@ serve(async (req) => {
 
   try {
     const requestData = await req.json();
-    console.log('Received data:', JSON.stringify(requestData, null, 2));
+    console.log('=== EMAIL FUNCTION DEBUG ===');
+    console.log('Full request data:', JSON.stringify(requestData, null, 2));
+    console.log('Order number from request:', requestData.orderNumber);
+    console.log('Type of orderNumber:', typeof requestData.orderNumber);
+    console.log('==============================');
     
     const { orderNumber, orderData, cartItems, subtotal, shippingCost, total, discounts } = requestData;
-    console.log('Order number:', orderNumber);
+    console.log('After destructuring - Order number:', orderNumber);
 
     // Use a proper table for order details for clear alignment
     const itemsTableHtml = `

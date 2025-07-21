@@ -102,6 +102,9 @@ export const OrderForm = () => {
 
     try {
       const orderNumber = `AG${Date.now().toString().slice(-6)}`;
+      console.log('=== FRONTEND DEBUG ===');
+      console.log('Generated order number:', orderNumber);
+      console.log('======================');
       
       const orderDetailsForEmail = cartItems.map(item => ({
         name: item.name,
